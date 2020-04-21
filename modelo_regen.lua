@@ -17,7 +17,16 @@ class 9 = [80, inf)
 extracted = {}
 DMC = 6           -- class dmc of (50 cm)
 NEW_TREES = 16    -- tree/ha/ano
-INC = 0.3         -- cm/year (base, class1)
+INC = {0.291, -- class1
+    0.317,    -- class2
+    0.442,    -- class3
+    0.473,    -- class4
+    0.623,    -- class5
+    0.587,    -- class6
+    0.587,    -- class7
+    0.717,    -- class8
+    0.836,    -- class9
+}             -- cm/year (base, class1)
 time = 110        -- years of simulation
 DAMAGE_EXP = 82
 DAMAGE_AFTER = 64
@@ -64,7 +73,7 @@ cell = Cell{
     regen = function(self)
         for i = 8, 1, -1 do
             if self["class"..i.."_sum"] > 0 then
-                self.diameter[i] = self.diameter[i] + INC
+                self.diameter[i] = self.diameter[i] + INC[i]
             end
 
             if self.diameter[i] >=  i*10 then
