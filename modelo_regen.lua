@@ -153,7 +153,7 @@ t = Timer{
     end},
     Event{period = madeireiro.cicle, action = function()
             local trees_b = all_trees()
-            --local trees_a = 0
+            -- local trees_a = 0
             print("trees before:",trees_b)
             map1:save("antes.png")
             madeireiro:extrair()
@@ -163,7 +163,7 @@ t = Timer{
             print("trees extracted:", trees_b - trees_a)
             print("trees after:",trees_a)
             print("-----------")
-            table.insert(extracted, trees_b - trees_a)
+            -- table.insert(extracted, trees_b - trees_a)
 
     end}
 }
@@ -182,6 +182,8 @@ map1:save("inicial.png")
 t:run(time)
 map1:save("final.png")
 
+--[[
 for i = 0, table.maxn(extracted) do
     print(i..".", extracted[i])
 end
+]]--
