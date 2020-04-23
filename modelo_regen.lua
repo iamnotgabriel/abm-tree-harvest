@@ -181,7 +181,7 @@ map1 = Map{
 map1:save("inicial.png")
 t:run(time)
 map1:save("final.png")
-
+print(#cs)
 --[[
 for i = 0, table.maxn(extracted) do
     print(i..".", extracted[i])

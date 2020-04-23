@@ -72,7 +72,7 @@ cell = Cell{
     regen = function(self)
         for i = 8, 1, -1 do
             local growing = 0
-            growing = self["class"..i.."_sum"] * 0.10 * (YPL / INC[i])
+            growing = self["class"..i.."_sum"] * 0.10 * (YPL*INC[i])
 
             if growing > 1 then
                 growing = math.floor(growing)
@@ -148,6 +148,7 @@ df = DataFrame{
 }
 
 toDF = function()
+    print("saving DF file")
     df:add{
         class1 = cs:class1_sum(),
         class2 = cs:class2_sum(),
@@ -183,7 +184,7 @@ t = Timer{
             local trees_b = all_trees()
             print("trees before:",trees_b)
             map1:save(IMAGE.."antes"..t:getTime()..".png")
-            madeireiro:extract()
+            --madeireiro:extract()
             map1:update()
             map1:save(IMAGE.."depois"..t:getTime()..".png")
             local trees_a = all_trees()
