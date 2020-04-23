@@ -19,7 +19,7 @@ IMAGE = "braz(2017)"
 DMC = 6           -- class dmc of (50 cm)
 NEW_TREES = 16    -- tree/ha/ano
 INC = {
-    0.291,        -- class1 
+    0.291,        -- class1
     0.317,        -- class2
     0.442,        -- class3
     0.473,        -- class4
@@ -41,7 +41,7 @@ cell = Cell{
     trees_reman = 0,
     trees_seeds = 0,
     init = function(self)
-        update_dest()
+        self:update_dest()
     end,
     update_dest = function(self)
         local cut = self:trees_count(DMC, 9)
@@ -70,18 +70,20 @@ cell = Cell{
         return self:trees_count(1, 9)
     end,
     regen = function(self)
-        self.class1_sum = self.class1_sum + NEW_TREES
         for i = 8, 1, -1 do
             local growing = 0
-            growing = self["class"..i.."_sum"] / (INC*years_per_loop)   
-            if growing > 1 then 
+            growing = self["class"..i.."_sum"] * 0.10 * (YPL / INC[i])
+
+            if growing > 1 then
                 growing = math.floor(growing)
             else
                 growing = math.ceil(growing)
             end
-            self["class"..(i+1)"_sum"] = self["class"..(i+1)"_sum"] + growing
+            self["class"..(i+1).."_sum"] = self["class"..(i+1).."_sum"] + growing
             self["class"..i.."_sum"] = self["class"..i.."_sum"] - growing
         end
+        -- Adding new trees
+        self.class1_sum = self.class1_sum + NEW_TREES * YPL
     end,
 }
 
@@ -123,44 +125,44 @@ madeireiro = Agent{
 
 }
 
-df = DataFrame{
-    class1 = cs.class1_sum,
-    class2 = cs.class2_sum,
-    class3 = cs.class3_sum,
-    class4 = cs.class4_sum,
-    class5 = cs.class5_sum,
-    class6 = cs.class6_sum,
-    class7 = cs.class7_sum,
-    class8 = cs.class8_sum,
-    class9 = cs.class9_sum,
-    trees_cut = cs.trees_cut,
-    trees_reman = cs.trees_reman,
-    trees_seeds = cs.trees_seeds
-}
-
-toDF = function() do
-    df:add{
-        cs.class1_sum,
-        cs.class2_sum,
-        cs.class3_sum,
-        cs.class4_sum,
-        cs.class5_sum,
-        cs.class6_sum,
-        cs.class7_sum,
-        cs.class8_sum,
-        cs.class9_sum,
-        trees_cut = cs.trees_cut,
-        trees_reman = cs.trees_reman,
-        trees_seeds = cs.trees_seeds
-    }
-end
-
 cs = CellularSpace {
     project = proj,
     layer  = "grid",
     missing = 0,
     instance = cell,
 }
+
+df = DataFrame{
+    class1 = {cs:class1_sum()},
+    class2 = {cs:class2_sum()},
+    class3 = {cs:class3_sum()},
+    class4 = {cs:class4_sum()},
+    class5 = {cs:class5_sum()},
+    class6 = {cs:class6_sum()},
+    class7 = {cs:class7_sum()},
+    class8 = {cs:class8_sum()},
+    class9 = {cs:class9_sum()},
+    trees_cut = {cs:trees_cut()},
+    trees_reman = {cs:trees_reman()},
+    trees_seeds = {cs:trees_seeds()}
+}
+
+toDF = function()
+    df:add{
+        class1 = cs:class1_sum(),
+        class2 = cs:class2_sum(),
+        class3 = cs:class3_sum(),
+        class4 = cs:class4_sum(),
+        class5 = cs:class5_sum(),
+        class6 = cs:class6_sum(),
+        class7 = cs:class7_sum(),
+        class8 = cs:class8_sum(),
+        class9 = cs:class9_sum(),
+        trees_cut = cs:trees_cut(),
+        trees_reman = cs:trees_reman(),
+        trees_seeds = cs:trees_seeds()
+    }
+end
 
 all_trees = function()
     local trees = 0
@@ -171,22 +173,25 @@ all_trees = function()
 end
 
 t = Timer{
-    Event{action = function()
+    Event{priority=-1, action = function()
+            print(t:getTime())
             cs:regen()
             cs:update_dest()
-            map1:update_dest()
+            map1:update()
     end},
-    Event{period = madeireiro.cicle, action = function()
+    Event{period = madeireiro.cicle//YPL, action = function()
             local trees_b = all_trees()
             print("trees before:",trees_b)
             map1:save(IMAGE.."antes"..t:getTime()..".png")
             madeireiro:extract()
-            map1:update_dest()
+            map1:update()
             map1:save(IMAGE.."depois"..t:getTime()..".png")
             local trees_a = all_trees()
             print("trees extracted:", trees_b - trees_a)
             print("trees after:", trees_a)
             print("-----------")
+    end},
+    Event {action = function()
             toDF()
     end}
 }
@@ -198,7 +203,7 @@ map1 = Map{
     slices = 10,
     color = "YlOrRd",
     min = 0,
-    max = 300
+    max = 2500
 }
 
 map1:save(IMAGE.."inicial.png")
