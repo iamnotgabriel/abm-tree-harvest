@@ -15,7 +15,7 @@ class 6 = [50, 60)
 class 9 = [80, inf)
 ]]--
 
-IMAGE = "braz(2017)"
+IMAGE = "braz(2017)/braz(2017)"
 DMC = 6           -- class dmc of (50 cm)
 NEW_TREES = 16    -- tree/ha/ano
 INC = {
