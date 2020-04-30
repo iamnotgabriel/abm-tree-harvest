@@ -14,54 +14,12 @@ class 6 = [50, 60)
 ...
 class 9 = [80, inf)
 ]]--
-NAME = "braz_2017"
+NAME = "braz_2014"
 IDAs = {}
-IDAs["braz_2017"] = {
-    0.291,        -- class1
-    0.317,        -- class2
-    0.442,        -- class3
-    0.473,        -- class4
-    0.623,        -- class5
-    0.587,        -- class6
-    0.587,        -- class7
-    0.717,        -- class8
-    0.836,        -- class9
-}
-IDAs["borges"] = {
-    .287,
-    .325,
-    .437,
-    .452,
-    .470,
-    .478,
-    .531,
-    .417,
-    .0,
-}
-IDAs["canneti"] = {
-    .283,
-    .377,
-    .451,
-    .475,
-    .485,
-    .493,
-    .569,
-    .580,
-    .546,
-}
-IDAs["oliveira"] = {
-    .427,
-    .606,
-    .720,
-    .805,
-    .710,
-    .751,
-    .903,
-    .816,
-    .838,
-}
-
+IDAs["braz_2014"] = .438
+IDAs["castro"] = .223
 INC = IDAs[NAME]
+DIAM = 0
 DMC = 6           -- class dmc of (50 cm)
 NEW_TREES = 16    -- tree/ha/ano
 CUT_CICLE = 30    -- lapse between cut cicles
@@ -85,7 +43,7 @@ cell = Cell{
         local reman = self:trees_count(DMC-2, DMC-1)
 
         -- remaining trees should be at least 10% of cut trees
-        if reman < seeds and cut > 0  then
+        if reman < seeds  then
             cut = cut - (seeds - reman)
             reman = seeds
         end
@@ -102,17 +60,12 @@ cell = Cell{
         return trees
     end,
     regen = function(self)
-        for i = 8, 1, -1 do
-            local growing = 0
-            growing = self["class"..i.."_sum"] * 0.20 * YPL * INC[i] / 2
-            growing = round(growing)
-            if self["class"..i.."_sum"] == 1 then
-                growing = 1
-            end
-            self["class"..(i+1).."_sum"] = self["class"..(i+1).."_sum"] + growing
-            self["class"..i.."_sum"] = self["class"..i.."_sum"] - growing
+        for c = 8, 1, -1 do
+            self["class"..(c+1).."_sum"] = self["class"..(c+1).."_sum"]  + self["class"..c.."_sum"]
+            self["class"..c.."_sum"] = 0
         end
-        -- Adding new trees
+    end,
+    new_trees = function() 
         self.class1_sum = self.class1_sum + NEW_TREES * YPL
     end,
     extract = function(self)
@@ -194,12 +147,20 @@ end
 t = Timer{
     Event{ action = function()
             local curr = t:getTime()
-            cs:regen()
+            DIAM = DIAM + INC * YPL
+            
+            if DIAM >= 10 then 
+                cs:regen()
+                DIAM =  DIAM - 10S
+            end 
+            cs:new_trees()
             cs:update_dest()
+
             if curr%(CUT_CICLE//YPL) == 0 then
                 cuts:add{cut=cs:trees_cut()}
-                --cs:extract()
+                cs:extract()
             end
+
             toDF()
     end},
 }
@@ -211,11 +172,10 @@ round = function(x)
         return math.floor(x)
     end
 end
-print(cs:all_trees())
+
 t:run(time//YPL)
 print("Saving output...")
---df:save(NAME.."/"..NAME.."ex2.csv")
---cuts:save(NAME.."/cutsex2.csv")
---cs:save(NAME.."ex2", {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
+df:save(NAME.."/"..NAME.."cex.csv")
+cuts:save(NAME.."/cutscex.csv")
+cs:save(NAME.."cex", {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
 print("Output saved")
-print(cs:all_trees())
