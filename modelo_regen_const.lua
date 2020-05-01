@@ -47,7 +47,7 @@ cell = Cell{
             cut = cut - (seeds - reman)
             reman = seeds
         end
-       self.trees_cut = cut
+        self.trees_cut = cut
         self.trees_seeds = seeds
         self.trees_reman = reman
         self.all_trees = self:trees_count(1,9)
@@ -148,11 +148,11 @@ t = Timer{
     Event{ action = function()
             local curr = t:getTime()
             DIAM = DIAM + INC * YPL
-            
+
             if DIAM >= 10 then 
                 cs:regen()
-                DIAM =  DIAM - 10S
-            end 
+                DIAM =  DIAM - 10
+            end
             cs:new_trees()
             cs:update_dest()
 
