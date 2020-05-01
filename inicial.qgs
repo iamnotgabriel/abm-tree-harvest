@@ -1,0 +1,1506 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis saveUser="gabriel" version="3.12.2-București" projectname="" saveUserFull="gabriel">
+  <homePath path=""/>
+  <title></title>
+  <autotransaction active="0"/>
+  <evaluateDefaultValues active="0"/>
+  <trust active="0"/>
+  <projectCrs>
+    <spatialrefsys>
+      <wkt>PROJCRS["MARGEN / UTM zone 21S",BASEGEOGCRS["MARGEN",DATUM["Marco Geodesico Nacional de Bolivia",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",5354]],CONVERSION["UTM zone 21S",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-57,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",10000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Bolivia - east of 60°W"],BBOX[-20.17,-60,-16.27,-57.52]],ID["EPSG",5357]]</wkt>
+      <proj4>+proj=utm +zone=21 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+      <srsid>28123</srsid>
+      <srid>5357</srid>
+      <authid>EPSG:5357</authid>
+      <description>MARGEN / UTM zone 21S</description>
+      <projectionacronym>utm</projectionacronym>
+      <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+      <geographicflag>false</geographicflag>
+    </spatialrefsys>
+  </projectCrs>
+  <layer-tree-group>
+    <customproperties/>
+    <layer-tree-layer providerKey="ogr" source="./dados/CELL_GRID_ENTRADA_MODELO.shp" checked="Qt::Unchecked" name="CELL_GRID_ENTRADA_MODELO" expanded="1" legend_exp="" id="CELL_GRID_ENTRADA_MODELO_7b64b283_bf56_4606_b0f6_ef46ce21bb46">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer providerKey="ogr" source="./dados/CELL_GRID_ENTRADA_MODELO.shp" checked="Qt::Checked" name="CELL_GRID_ENTRADA_MODELO" expanded="1" legend_exp="" id="CELL_GRID_ENTRADA_MODELO_f393e7fd_269d_4999_9ead_94dcb6167e4d">
+      <customproperties/>
+    </layer-tree-layer>
+    <custom-order enabled="0">
+      <item>CELL_GRID_ENTRADA_MODELO_f393e7fd_269d_4999_9ead_94dcb6167e4d</item>
+      <item>CELL_GRID_ENTRADA_MODELO_7b64b283_bf56_4606_b0f6_ef46ce21bb46</item>
+    </custom-order>
+  </layer-tree-group>
+  <snapping-settings enabled="0" intersection-snapping="0" mode="2" unit="1" tolerance="12" type="1">
+    <individual-layer-settings>
+      <layer-setting enabled="0" units="1" tolerance="12" id="CELL_GRID_ENTRADA_MODELO_f393e7fd_269d_4999_9ead_94dcb6167e4d" type="1"/>
+      <layer-setting enabled="0" units="1" tolerance="12" id="CELL_GRID_ENTRADA_MODELO_7b64b283_bf56_4606_b0f6_ef46ce21bb46" type="1"/>
+    </individual-layer-settings>
+  </snapping-settings>
+  <relations/>
+  <mapcanvas name="theMapCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>627588.70456971903331578</xmin>
+      <ymin>8778687.20039055868983269</ymin>
+      <xmax>640703.69286247086711228</xmax>
+      <ymax>8786324.86388282850384712</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <wkt>PROJCRS["MARGEN / UTM zone 21S",BASEGEOGCRS["MARGEN",DATUM["Marco Geodesico Nacional de Bolivia",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",5354]],CONVERSION["UTM zone 21S",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-57,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",10000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Bolivia - east of 60°W"],BBOX[-20.17,-60,-16.27,-57.52]],ID["EPSG",5357]]</wkt>
+        <proj4>+proj=utm +zone=21 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+        <srsid>28123</srsid>
+        <srid>5357</srid>
+        <authid>EPSG:5357</authid>
+        <description>MARGEN / UTM zone 21S</description>
+        <projectionacronym>utm</projectionacronym>
+        <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <expressionContextScope/>
+  </mapcanvas>
+  <projectModels/>
+  <legend updateDrawingOrder="true">
+    <legendlayer showFeatureCount="0" checked="Qt::Unchecked" drawingOrder="-1" open="true" name="CELL_GRID_ENTRADA_MODELO">
+      <filegroup open="true" hidden="false">
+        <legendlayerfile isInOverview="0" visible="0" layerid="CELL_GRID_ENTRADA_MODELO_7b64b283_bf56_4606_b0f6_ef46ce21bb46"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer showFeatureCount="0" checked="Qt::Checked" drawingOrder="-1" open="true" name="CELL_GRID_ENTRADA_MODELO">
+      <filegroup open="true" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="CELL_GRID_ENTRADA_MODELO_f393e7fd_269d_4999_9ead_94dcb6167e4d"/>
+      </filegroup>
+    </legendlayer>
+  </legend>
+  <mapViewDocks/>
+  <mapViewDocks3D/>
+  <projectlayers>
+    <maplayer refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" geometry="Polygon" maxScale="0" readOnly="0" simplifyMaxScale="1" labelsEnabled="0" simplifyLocal="1" wkbType="MultiPolygon" simplifyDrawingTol="1" simplifyAlgorithm="0" minScale="100000000" autoRefreshTime="0" type="vector" simplifyDrawingHints="1" styleCategories="AllStyleCategories" refreshOnNotifyMessage="" autoRefreshEnabled="0">
+      <extent>
+        <xmin>631905.88000000000465661</xmin>
+        <ymin>8779930.19999999925494194</ymin>
+        <xmax>634705.88000000000465661</xmax>
+        <ymax>8785430.19999999925494194</ymax>
+      </extent>
+      <id>CELL_GRID_ENTRADA_MODELO_7b64b283_bf56_4606_b0f6_ef46ce21bb46</id>
+      <datasource>./dados/CELL_GRID_ENTRADA_MODELO.shp</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>CELL_GRID_ENTRADA_MODELO</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["MARGEN / UTM zone 21S",BASEGEOGCRS["MARGEN",DATUM["Marco Geodesico Nacional de Bolivia",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",5354]],CONVERSION["UTM zone 21S",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-57,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",10000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Bolivia - east of 60°W"],BBOX[-20.17,-60,-16.27,-57.52]],ID["EPSG",5357]]</wkt>
+          <proj4>+proj=utm +zone=21 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>28123</srsid>
+          <srid>5357</srid>
+          <authid>EPSG:5357</authid>
+          <description>MARGEN / UTM zone 21S</description>
+          <projectionacronym>utm</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="0" maxx="0" miny="0" minx="0" minz="0" crs="" maxz="0" dimensions="2"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="ISO-8859-1">ogr</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 graduatedMethod="GraduatedColor" forceraster="0" type="graduatedSymbol" symbollevels="0" attr="class_sum" enableorderby="0">
+        <ranges>
+          <range render="true" label="1 - 6" lower="1.000000000000000" upper="6.000000000000000" symbol="0"/>
+          <range render="true" label="6 - 11" lower="6.000000000000000" upper="11.000000000000000" symbol="1"/>
+          <range render="true" label="11 - 16" lower="11.000000000000000" upper="16.000000000000000" symbol="2"/>
+          <range render="true" label="16 - 20" lower="16.000000000000000" upper="20.000000000000000" symbol="3"/>
+          <range render="true" label="20 - 56" lower="20.000000000000000" upper="56.000000000000000" symbol="4"/>
+        </ranges>
+        <symbols>
+          <symbol alpha="1" name="0" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="247,252,245,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" name="1" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="202,234,195,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" name="2" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="123,200,124,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" name="3" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="42,146,74,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" name="4" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="0,68,27,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <source-symbol>
+          <symbol alpha="1" name="0" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="164,113,88,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </source-symbol>
+        <colorramp name="[source]" type="gradient">
+          <prop v="247,252,245,255" k="color1"/>
+          <prop v="0,68,27,255" k="color2"/>
+          <prop v="0" k="discrete"/>
+          <prop v="gradient" k="rampType"/>
+          <prop v="0.13;229,245,224,255:0.26;199,233,192,255:0.39;161,217,155,255:0.52;116,196,118,255:0.65;65,171,93,255:0.78;35,139,69,255:0.9;0,109,44,255" k="stops"/>
+        </colorramp>
+        <classificationMethod id="Quantile">
+          <symmetricMode enabled="0" astride="0" symmetrypoint="0"/>
+          <labelFormat labelprecision="1" trimtrailingzeroes="1" format="%1 - %2"/>
+          <parameters>
+            <Option/>
+          </parameters>
+          <extraInformation/>
+        </classificationMethod>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <property key="dualview/previewExpressions">
+          <value>id</value>
+          <value>"id"</value>
+        </property>
+        <property value="0" key="embeddedWidgets/count"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
+        <DiagramCategory backgroundAlpha="255" labelPlacementMethod="XHeight" penWidth="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15" lineSizeType="MM" penAlpha="255" minimumSize="0" sizeScale="3x:0,0,0,0,0,0" penColor="#000000" scaleDependency="Area" maxScaleDenominator="1e+08" enabled="0" direction="0" sizeType="MM" minScaleDenominator="0" backgroundColor="#ffffff" rotationOffset="270" height="15" spacing="5" lineSizeScale="3x:0,0,0,0,0,0" scaleBasedVisibility="0" diagramOrientation="Up" opacity="1" showAxis="1" barWidth="5">
+          <fontProperties style="" description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
+          <axisSymbol>
+            <symbol alpha="1" name="" force_rhr="0" type="line" clip_to_extent="1">
+              <layer enabled="1" locked="0" class="SimpleLine" pass="0">
+                <prop v="square" k="capstyle"/>
+                <prop v="5;2" k="customdash"/>
+                <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
+                <prop v="MM" k="customdash_unit"/>
+                <prop v="0" k="draw_inside_polygon"/>
+                <prop v="bevel" k="joinstyle"/>
+                <prop v="35,35,35,255" k="line_color"/>
+                <prop v="solid" k="line_style"/>
+                <prop v="0.26" k="line_width"/>
+                <prop v="MM" k="line_width_unit"/>
+                <prop v="0" k="offset"/>
+                <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+                <prop v="MM" k="offset_unit"/>
+                <prop v="0" k="ring_filter"/>
+                <prop v="0" k="use_custom_dash"/>
+                <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+                <data_defined_properties>
+                  <Option type="Map">
+                    <Option value="" name="name" type="QString"/>
+                    <Option name="properties"/>
+                    <Option value="collection" name="type" type="QString"/>
+                  </Option>
+                </data_defined_properties>
+              </layer>
+            </symbol>
+          </axisSymbol>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings zIndex="0" priority="0" dist="0" obstacle="0" placement="1" linePlacementFlags="18" showAll="1">
+        <properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+        <activeChecks/>
+        <checkConfiguration type="Map">
+          <Option name="QgsGeometryGapCheck" type="Map">
+            <Option value="0" name="allowedGapsBuffer" type="double"/>
+            <Option value="false" name="allowedGapsEnabled" type="bool"/>
+            <Option value="" name="allowedGapsLayer" type="QString"/>
+          </Option>
+        </checkConfiguration>
+      </geometryOptions>
+      <referencedLayers/>
+      <referencingLayers/>
+      <fieldConfiguration>
+        <field name="id">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="col">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="row">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class1_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class2_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class3_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class4_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class5_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class6_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class7_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class8_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class9_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="corte_sum_">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="nao_comerc">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="porta_seme">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="proib_cort">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="reman_sum_">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class_sum">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias name="" field="id" index="0"/>
+        <alias name="" field="col" index="1"/>
+        <alias name="" field="row" index="2"/>
+        <alias name="" field="class1_sum" index="3"/>
+        <alias name="" field="class2_sum" index="4"/>
+        <alias name="" field="class3_sum" index="5"/>
+        <alias name="" field="class4_sum" index="6"/>
+        <alias name="" field="class5_sum" index="7"/>
+        <alias name="" field="class6_sum" index="8"/>
+        <alias name="" field="class7_sum" index="9"/>
+        <alias name="" field="class8_sum" index="10"/>
+        <alias name="" field="class9_sum" index="11"/>
+        <alias name="" field="corte_sum_" index="12"/>
+        <alias name="" field="nao_comerc" index="13"/>
+        <alias name="" field="porta_seme" index="14"/>
+        <alias name="" field="proib_cort" index="15"/>
+        <alias name="" field="reman_sum_" index="16"/>
+        <alias name="" field="class_sum" index="17"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="col" expression="" applyOnUpdate="0"/>
+        <default field="row" expression="" applyOnUpdate="0"/>
+        <default field="class1_sum" expression="" applyOnUpdate="0"/>
+        <default field="class2_sum" expression="" applyOnUpdate="0"/>
+        <default field="class3_sum" expression="" applyOnUpdate="0"/>
+        <default field="class4_sum" expression="" applyOnUpdate="0"/>
+        <default field="class5_sum" expression="" applyOnUpdate="0"/>
+        <default field="class6_sum" expression="" applyOnUpdate="0"/>
+        <default field="class7_sum" expression="" applyOnUpdate="0"/>
+        <default field="class8_sum" expression="" applyOnUpdate="0"/>
+        <default field="class9_sum" expression="" applyOnUpdate="0"/>
+        <default field="corte_sum_" expression="" applyOnUpdate="0"/>
+        <default field="nao_comerc" expression="" applyOnUpdate="0"/>
+        <default field="porta_seme" expression="" applyOnUpdate="0"/>
+        <default field="proib_cort" expression="" applyOnUpdate="0"/>
+        <default field="reman_sum_" expression="" applyOnUpdate="0"/>
+        <default field="class_sum" expression="" applyOnUpdate="0"/>
+      </defaults>
+      <constraints>
+        <constraint unique_strength="0" notnull_strength="0" field="id" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="col" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="row" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class1_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class2_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class3_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class4_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class5_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class6_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class7_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class8_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class9_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="corte_sum_" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="nao_comerc" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="porta_seme" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="proib_cort" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="reman_sum_" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class_sum" constraints="0" exp_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint desc="" exp="" field="id"/>
+        <constraint desc="" exp="" field="col"/>
+        <constraint desc="" exp="" field="row"/>
+        <constraint desc="" exp="" field="class1_sum"/>
+        <constraint desc="" exp="" field="class2_sum"/>
+        <constraint desc="" exp="" field="class3_sum"/>
+        <constraint desc="" exp="" field="class4_sum"/>
+        <constraint desc="" exp="" field="class5_sum"/>
+        <constraint desc="" exp="" field="class6_sum"/>
+        <constraint desc="" exp="" field="class7_sum"/>
+        <constraint desc="" exp="" field="class8_sum"/>
+        <constraint desc="" exp="" field="class9_sum"/>
+        <constraint desc="" exp="" field="corte_sum_"/>
+        <constraint desc="" exp="" field="nao_comerc"/>
+        <constraint desc="" exp="" field="porta_seme"/>
+        <constraint desc="" exp="" field="proib_cort"/>
+        <constraint desc="" exp="" field="reman_sum_"/>
+        <constraint desc="" exp="" field="class_sum"/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+        <columns>
+          <column width="-1" name="id" type="field" hidden="0"/>
+          <column width="-1" name="col" type="field" hidden="0"/>
+          <column width="-1" name="row" type="field" hidden="0"/>
+          <column width="-1" name="class1_sum" type="field" hidden="0"/>
+          <column width="-1" name="class2_sum" type="field" hidden="0"/>
+          <column width="-1" name="class3_sum" type="field" hidden="0"/>
+          <column width="-1" name="class4_sum" type="field" hidden="0"/>
+          <column width="-1" name="class5_sum" type="field" hidden="0"/>
+          <column width="-1" name="class6_sum" type="field" hidden="0"/>
+          <column width="-1" name="class7_sum" type="field" hidden="0"/>
+          <column width="-1" name="class8_sum" type="field" hidden="0"/>
+          <column width="-1" name="class9_sum" type="field" hidden="0"/>
+          <column width="-1" name="corte_sum_" type="field" hidden="0"/>
+          <column width="-1" name="nao_comerc" type="field" hidden="0"/>
+          <column width="-1" name="porta_seme" type="field" hidden="0"/>
+          <column width="-1" name="proib_cort" type="field" hidden="0"/>
+          <column width="-1" name="reman_sum_" type="field" hidden="0"/>
+          <column width="-1" type="actions" hidden="1"/>
+          <column width="-1" name="class_sum" type="field" hidden="0"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	geom = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable>
+        <field name="class1_sum" editable="1"/>
+        <field name="class2_sum" editable="1"/>
+        <field name="class3_sum" editable="1"/>
+        <field name="class4_sum" editable="1"/>
+        <field name="class5_sum" editable="1"/>
+        <field name="class6_sum" editable="1"/>
+        <field name="class7_sum" editable="1"/>
+        <field name="class8_sum" editable="1"/>
+        <field name="class9_sum" editable="1"/>
+        <field name="class_sum" editable="1"/>
+        <field name="col" editable="1"/>
+        <field name="corte_sum_" editable="1"/>
+        <field name="id" editable="1"/>
+        <field name="nao_comerc" editable="1"/>
+        <field name="porta_seme" editable="1"/>
+        <field name="proib_cort" editable="1"/>
+        <field name="reman_sum_" editable="1"/>
+        <field name="row" editable="1"/>
+      </editable>
+      <labelOnTop>
+        <field name="class1_sum" labelOnTop="0"/>
+        <field name="class2_sum" labelOnTop="0"/>
+        <field name="class3_sum" labelOnTop="0"/>
+        <field name="class4_sum" labelOnTop="0"/>
+        <field name="class5_sum" labelOnTop="0"/>
+        <field name="class6_sum" labelOnTop="0"/>
+        <field name="class7_sum" labelOnTop="0"/>
+        <field name="class8_sum" labelOnTop="0"/>
+        <field name="class9_sum" labelOnTop="0"/>
+        <field name="class_sum" labelOnTop="0"/>
+        <field name="col" labelOnTop="0"/>
+        <field name="corte_sum_" labelOnTop="0"/>
+        <field name="id" labelOnTop="0"/>
+        <field name="nao_comerc" labelOnTop="0"/>
+        <field name="porta_seme" labelOnTop="0"/>
+        <field name="proib_cort" labelOnTop="0"/>
+        <field name="reman_sum_" labelOnTop="0"/>
+        <field name="row" labelOnTop="0"/>
+      </labelOnTop>
+      <widgets/>
+      <previewExpression>id</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+    <maplayer refreshOnNotifyEnabled="0" hasScaleBasedVisibilityFlag="0" geometry="Polygon" maxScale="0" readOnly="0" simplifyMaxScale="1" labelsEnabled="0" simplifyLocal="1" wkbType="MultiPolygon" simplifyDrawingTol="1" simplifyAlgorithm="0" minScale="100000000" autoRefreshTime="0" type="vector" simplifyDrawingHints="1" styleCategories="AllStyleCategories" refreshOnNotifyMessage="" autoRefreshEnabled="0">
+      <extent>
+        <xmin>631905.88000000000465661</xmin>
+        <ymin>8779930.19999999925494194</ymin>
+        <xmax>634705.88000000000465661</xmax>
+        <ymax>8785430.19999999925494194</ymax>
+      </extent>
+      <id>CELL_GRID_ENTRADA_MODELO_f393e7fd_269d_4999_9ead_94dcb6167e4d</id>
+      <datasource>./dados/CELL_GRID_ENTRADA_MODELO.shp</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>CELL_GRID_ENTRADA_MODELO</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["MARGEN / UTM zone 21S",BASEGEOGCRS["MARGEN",DATUM["Marco Geodesico Nacional de Bolivia",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",5354]],CONVERSION["UTM zone 21S",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-57,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",10000000,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["Bolivia - east of 60°W"],BBOX[-20.17,-60,-16.27,-57.52]],ID["EPSG",5357]]</wkt>
+          <proj4>+proj=utm +zone=21 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>28123</srsid>
+          <srid>5357</srid>
+          <authid>EPSG:5357</authid>
+          <description>MARGEN / UTM zone 21S</description>
+          <projectionacronym>utm</projectionacronym>
+          <ellipsoidacronym>EPSG:7019</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type>dataset</type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial maxy="0" maxx="0" miny="0" minx="0" minz="0" crs="" maxz="0" dimensions="2"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="ISO-8859-1">ogr</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 graduatedMethod="GraduatedColor" forceraster="0" type="graduatedSymbol" symbollevels="0" attr="corte_sum_" enableorderby="0">
+        <ranges>
+          <range render="true" label="0 - 1" lower="0.000000000000000" upper="1.000000000000000" symbol="0"/>
+          <range render="true" label="1 - 3" lower="1.000000000000000" upper="3.000000000000000" symbol="1"/>
+          <range render="true" label="3 - 5" lower="3.000000000000000" upper="5.000000000000000" symbol="2"/>
+          <range render="true" label="5 - 8" lower="5.000000000000000" upper="8.000000000000000" symbol="3"/>
+          <range render="true" label="8 - 40" lower="8.000000000000000" upper="40.000000000000000" symbol="4"/>
+        </ranges>
+        <symbols>
+          <symbol alpha="1" name="0" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="255,255,255,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" name="1" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="255,191,191,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" name="2" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="255,128,128,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" name="3" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="255,64,64,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" name="4" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="255,0,0,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <source-symbol>
+          <symbol alpha="1" name="0" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="183,72,75,255" k="color"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </source-symbol>
+        <colorramp name="[source]" type="gradient">
+          <prop v="255,255,255,255" k="color1"/>
+          <prop v="255,0,0,255" k="color2"/>
+          <prop v="0" k="discrete"/>
+          <prop v="gradient" k="rampType"/>
+        </colorramp>
+        <classificationMethod id="Quantile">
+          <symmetricMode enabled="0" astride="0" symmetrypoint="0"/>
+          <labelFormat labelprecision="1" trimtrailingzeroes="1" format="%1 - %2"/>
+          <parameters>
+            <Option/>
+          </parameters>
+          <extraInformation/>
+        </classificationMethod>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <property value="0" key="embeddedWidgets/count"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
+        <DiagramCategory backgroundAlpha="255" labelPlacementMethod="XHeight" penWidth="0" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15" lineSizeType="MM" penAlpha="255" minimumSize="0" sizeScale="3x:0,0,0,0,0,0" penColor="#000000" scaleDependency="Area" maxScaleDenominator="1e+08" enabled="0" direction="0" sizeType="MM" minScaleDenominator="0" backgroundColor="#ffffff" rotationOffset="270" height="15" spacing="5" lineSizeScale="3x:0,0,0,0,0,0" scaleBasedVisibility="0" diagramOrientation="Up" opacity="1" showAxis="1" barWidth="5">
+          <fontProperties style="" description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
+          <axisSymbol>
+            <symbol alpha="1" name="" force_rhr="0" type="line" clip_to_extent="1">
+              <layer enabled="1" locked="0" class="SimpleLine" pass="0">
+                <prop v="square" k="capstyle"/>
+                <prop v="5;2" k="customdash"/>
+                <prop v="3x:0,0,0,0,0,0" k="customdash_map_unit_scale"/>
+                <prop v="MM" k="customdash_unit"/>
+                <prop v="0" k="draw_inside_polygon"/>
+                <prop v="bevel" k="joinstyle"/>
+                <prop v="35,35,35,255" k="line_color"/>
+                <prop v="solid" k="line_style"/>
+                <prop v="0.26" k="line_width"/>
+                <prop v="MM" k="line_width_unit"/>
+                <prop v="0" k="offset"/>
+                <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+                <prop v="MM" k="offset_unit"/>
+                <prop v="0" k="ring_filter"/>
+                <prop v="0" k="use_custom_dash"/>
+                <prop v="3x:0,0,0,0,0,0" k="width_map_unit_scale"/>
+                <data_defined_properties>
+                  <Option type="Map">
+                    <Option value="" name="name" type="QString"/>
+                    <Option name="properties"/>
+                    <Option value="collection" name="type" type="QString"/>
+                  </Option>
+                </data_defined_properties>
+              </layer>
+            </symbol>
+          </axisSymbol>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings zIndex="0" priority="0" dist="0" obstacle="0" placement="1" linePlacementFlags="18" showAll="1">
+        <properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+        <activeChecks/>
+        <checkConfiguration type="Map">
+          <Option name="QgsGeometryGapCheck" type="Map">
+            <Option value="0" name="allowedGapsBuffer" type="double"/>
+            <Option value="false" name="allowedGapsEnabled" type="bool"/>
+            <Option value="" name="allowedGapsLayer" type="QString"/>
+          </Option>
+        </checkConfiguration>
+      </geometryOptions>
+      <referencedLayers/>
+      <referencingLayers/>
+      <fieldConfiguration>
+        <field name="id">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="col">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="row">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class1_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class2_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class3_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class4_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class5_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class6_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class7_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class8_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="class9_sum">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="corte_sum_">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="nao_comerc">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="porta_seme">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="proib_cort">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="reman_sum_">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias name="" field="id" index="0"/>
+        <alias name="" field="col" index="1"/>
+        <alias name="" field="row" index="2"/>
+        <alias name="" field="class1_sum" index="3"/>
+        <alias name="" field="class2_sum" index="4"/>
+        <alias name="" field="class3_sum" index="5"/>
+        <alias name="" field="class4_sum" index="6"/>
+        <alias name="" field="class5_sum" index="7"/>
+        <alias name="" field="class6_sum" index="8"/>
+        <alias name="" field="class7_sum" index="9"/>
+        <alias name="" field="class8_sum" index="10"/>
+        <alias name="" field="class9_sum" index="11"/>
+        <alias name="" field="corte_sum_" index="12"/>
+        <alias name="" field="nao_comerc" index="13"/>
+        <alias name="" field="porta_seme" index="14"/>
+        <alias name="" field="proib_cort" index="15"/>
+        <alias name="" field="reman_sum_" index="16"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="col" expression="" applyOnUpdate="0"/>
+        <default field="row" expression="" applyOnUpdate="0"/>
+        <default field="class1_sum" expression="" applyOnUpdate="0"/>
+        <default field="class2_sum" expression="" applyOnUpdate="0"/>
+        <default field="class3_sum" expression="" applyOnUpdate="0"/>
+        <default field="class4_sum" expression="" applyOnUpdate="0"/>
+        <default field="class5_sum" expression="" applyOnUpdate="0"/>
+        <default field="class6_sum" expression="" applyOnUpdate="0"/>
+        <default field="class7_sum" expression="" applyOnUpdate="0"/>
+        <default field="class8_sum" expression="" applyOnUpdate="0"/>
+        <default field="class9_sum" expression="" applyOnUpdate="0"/>
+        <default field="corte_sum_" expression="" applyOnUpdate="0"/>
+        <default field="nao_comerc" expression="" applyOnUpdate="0"/>
+        <default field="porta_seme" expression="" applyOnUpdate="0"/>
+        <default field="proib_cort" expression="" applyOnUpdate="0"/>
+        <default field="reman_sum_" expression="" applyOnUpdate="0"/>
+      </defaults>
+      <constraints>
+        <constraint unique_strength="0" notnull_strength="0" field="id" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="col" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="row" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class1_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class2_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class3_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class4_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class5_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class6_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class7_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class8_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="class9_sum" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="corte_sum_" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="nao_comerc" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="porta_seme" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="proib_cort" constraints="0" exp_strength="0"/>
+        <constraint unique_strength="0" notnull_strength="0" field="reman_sum_" constraints="0" exp_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint desc="" exp="" field="id"/>
+        <constraint desc="" exp="" field="col"/>
+        <constraint desc="" exp="" field="row"/>
+        <constraint desc="" exp="" field="class1_sum"/>
+        <constraint desc="" exp="" field="class2_sum"/>
+        <constraint desc="" exp="" field="class3_sum"/>
+        <constraint desc="" exp="" field="class4_sum"/>
+        <constraint desc="" exp="" field="class5_sum"/>
+        <constraint desc="" exp="" field="class6_sum"/>
+        <constraint desc="" exp="" field="class7_sum"/>
+        <constraint desc="" exp="" field="class8_sum"/>
+        <constraint desc="" exp="" field="class9_sum"/>
+        <constraint desc="" exp="" field="corte_sum_"/>
+        <constraint desc="" exp="" field="nao_comerc"/>
+        <constraint desc="" exp="" field="porta_seme"/>
+        <constraint desc="" exp="" field="proib_cort"/>
+        <constraint desc="" exp="" field="reman_sum_"/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+        <columns>
+          <column width="-1" name="id" type="field" hidden="0"/>
+          <column width="-1" name="col" type="field" hidden="0"/>
+          <column width="-1" name="row" type="field" hidden="0"/>
+          <column width="-1" name="class1_sum" type="field" hidden="0"/>
+          <column width="-1" name="class2_sum" type="field" hidden="0"/>
+          <column width="-1" name="class3_sum" type="field" hidden="0"/>
+          <column width="-1" name="class4_sum" type="field" hidden="0"/>
+          <column width="-1" name="class5_sum" type="field" hidden="0"/>
+          <column width="-1" name="class6_sum" type="field" hidden="0"/>
+          <column width="-1" name="class7_sum" type="field" hidden="0"/>
+          <column width="-1" name="class8_sum" type="field" hidden="0"/>
+          <column width="-1" name="class9_sum" type="field" hidden="0"/>
+          <column width="-1" name="corte_sum_" type="field" hidden="0"/>
+          <column width="-1" name="nao_comerc" type="field" hidden="0"/>
+          <column width="-1" name="porta_seme" type="field" hidden="0"/>
+          <column width="-1" name="proib_cort" type="field" hidden="0"/>
+          <column width="-1" name="reman_sum_" type="field" hidden="0"/>
+          <column width="-1" type="actions" hidden="1"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <storedexpressions/>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	geom = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable>
+        <field name="class1_sum" editable="1"/>
+        <field name="class2_sum" editable="1"/>
+        <field name="class3_sum" editable="1"/>
+        <field name="class4_sum" editable="1"/>
+        <field name="class5_sum" editable="1"/>
+        <field name="class6_sum" editable="1"/>
+        <field name="class7_sum" editable="1"/>
+        <field name="class8_sum" editable="1"/>
+        <field name="class9_sum" editable="1"/>
+        <field name="col" editable="1"/>
+        <field name="corte_sum_" editable="1"/>
+        <field name="id" editable="1"/>
+        <field name="nao_comerc" editable="1"/>
+        <field name="porta_seme" editable="1"/>
+        <field name="proib_cort" editable="1"/>
+        <field name="reman_sum_" editable="1"/>
+        <field name="row" editable="1"/>
+      </editable>
+      <labelOnTop>
+        <field name="class1_sum" labelOnTop="0"/>
+        <field name="class2_sum" labelOnTop="0"/>
+        <field name="class3_sum" labelOnTop="0"/>
+        <field name="class4_sum" labelOnTop="0"/>
+        <field name="class5_sum" labelOnTop="0"/>
+        <field name="class6_sum" labelOnTop="0"/>
+        <field name="class7_sum" labelOnTop="0"/>
+        <field name="class8_sum" labelOnTop="0"/>
+        <field name="class9_sum" labelOnTop="0"/>
+        <field name="col" labelOnTop="0"/>
+        <field name="corte_sum_" labelOnTop="0"/>
+        <field name="id" labelOnTop="0"/>
+        <field name="nao_comerc" labelOnTop="0"/>
+        <field name="porta_seme" labelOnTop="0"/>
+        <field name="proib_cort" labelOnTop="0"/>
+        <field name="reman_sum_" labelOnTop="0"/>
+        <field name="row" labelOnTop="0"/>
+      </labelOnTop>
+      <widgets/>
+      <previewExpression>id</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </projectlayers>
+  <layerorder>
+    <layer id="CELL_GRID_ENTRADA_MODELO_f393e7fd_269d_4999_9ead_94dcb6167e4d"/>
+    <layer id="CELL_GRID_ENTRADA_MODELO_7b64b283_bf56_4606_b0f6_ef46ce21bb46"/>
+  </layerorder>
+  <properties>
+    <Gui>
+      <CanvasColorBluePart type="int">255</CanvasColorBluePart>
+      <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
+      <CanvasColorRedPart type="int">255</CanvasColorRedPart>
+      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+      <SelectionColorBluePart type="int">0</SelectionColorBluePart>
+      <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
+      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
+    </Gui>
+    <Legend>
+      <filterByMap type="bool">false</filterByMap>
+    </Legend>
+    <Measure>
+      <Ellipsoid type="QString">EPSG:7019</Ellipsoid>
+    </Measure>
+    <Measurement>
+      <AreaUnits type="QString"></AreaUnits>
+      <DistanceUnits type="QString"></DistanceUnits>
+    </Measurement>
+    <PAL>
+      <CandidatesLinePerCM type="double">5</CandidatesLinePerCM>
+      <CandidatesPolygonPerCM type="double">2.5</CandidatesPolygonPerCM>
+      <DrawRectOnly type="bool">false</DrawRectOnly>
+      <DrawUnplaced type="bool">false</DrawUnplaced>
+      <PlacementEngineVersion type="int">1</PlacementEngineVersion>
+      <SearchMethod type="int">0</SearchMethod>
+      <ShowingAllLabels type="bool">false</ShowingAllLabels>
+      <ShowingCandidates type="bool">false</ShowingCandidates>
+      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <TextFormat type="int">0</TextFormat>
+      <UnplacedColor type="QString">255,0,0,255</UnplacedColor>
+    </PAL>
+    <Paths>
+      <Absolute type="bool">false</Absolute>
+    </Paths>
+    <PositionPrecision>
+      <Automatic type="bool">true</Automatic>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+    </PositionPrecision>
+    <SpatialRefSys>
+      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+    </SpatialRefSys>
+  </properties>
+  <visibility-presets/>
+  <transformContext/>
+  <projectMetadata>
+    <identifier></identifier>
+    <parentidentifier></parentidentifier>
+    <language></language>
+    <type></type>
+    <title></title>
+    <abstract></abstract>
+    <links/>
+    <author>gabriel</author>
+    <creation>2020-05-01T11:53:03</creation>
+  </projectMetadata>
+  <Annotations/>
+  <Layouts>
+    <Layout units="mm" name="legend " printResolution="300" worldFileMap="{2c17c4fd-1fed-4e2f-a3e6-76eac2ddd1c0}">
+      <Snapper tolerance="5" snapToGuides="1" snapToGrid="0" snapToItems="1"/>
+      <Grid offsetUnits="mm" offsetX="0" resolution="10" offsetY="0" resUnits="mm"/>
+      <PageCollection>
+        <symbol alpha="1" name="" force_rhr="0" type="fill" clip_to_extent="1">
+          <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+            <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+            <prop v="255,255,255,255" k="color"/>
+            <prop v="miter" k="joinstyle"/>
+            <prop v="0,0" k="offset"/>
+            <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+            <prop v="MM" k="offset_unit"/>
+            <prop v="35,35,35,255" k="outline_color"/>
+            <prop v="no" k="outline_style"/>
+            <prop v="0.26" k="outline_width"/>
+            <prop v="MM" k="outline_width_unit"/>
+            <prop v="solid" k="style"/>
+            <data_defined_properties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </data_defined_properties>
+          </layer>
+        </symbol>
+        <LayoutItem positionOnPage="0,0,mm" size="297,210,mm" groupUuid="" templateUuid="{42bdc1df-90f0-4710-a346-23db18a4871c}" uuid="{42bdc1df-90f0-4710-a346-23db18a4871c}" visibility="1" referencePoint="0" positionLock="false" outlineWidthM="0.3,mm" excludeFromExports="0" frame="false" blendMode="0" position="0,0,mm" id="" background="true" type="65638" frameJoinStyle="miter" opacity="1" itemRotation="0" zValue="0">
+          <FrameColor alpha="255" blue="0" red="0" green="0"/>
+          <BackgroundColor alpha="255" blue="255" red="255" green="255"/>
+          <LayoutObject>
+            <dataDefinedProperties>
+              <Option type="Map">
+                <Option value="" name="name" type="QString"/>
+                <Option name="properties"/>
+                <Option value="collection" name="type" type="QString"/>
+              </Option>
+            </dataDefinedProperties>
+            <customproperties/>
+          </LayoutObject>
+          <symbol alpha="1" name="" force_rhr="0" type="fill" clip_to_extent="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop v="3x:0,0,0,0,0,0" k="border_width_map_unit_scale"/>
+              <prop v="255,255,255,255" k="color"/>
+              <prop v="miter" k="joinstyle"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="no" k="outline_style"/>
+              <prop v="0.26" k="outline_width"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="solid" k="style"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </LayoutItem>
+        <GuideCollection visible="1"/>
+      </PageCollection>
+      <LayoutItem titleAlignment="1" frame="false" itemRotation="0" visibility="1" background="true" position="23.97,95.3226,mm" wmsLegendHeight="25" title="" rasterBorderWidth="0" uuid="{c5895b91-0453-462d-93fc-c0f909477a15}" equalColumnWidth="0" symbolAlignment="1" rasterBorderColor="0,0,0,255" boxSpace="2" resizeToContents="1" columnSpace="2" id="" size="65.7797,83.5,mm" frameJoinStyle="miter" fontColor="#000000" referencePoint="0" lineSpacing="1" type="65642" groupUuid="" templateUuid="{c5895b91-0453-462d-93fc-c0f909477a15}" zValue="2" positionLock="false" legendFilterByAtlas="0" wrapChar="" blendMode="0" splitLayer="0" opacity="1" columnCount="1" excludeFromExports="0" outlineWidthM="0.3,mm" symbolWidth="7" symbolHeight="4" wmsLegendWidth="50" map_uuid="{2c17c4fd-1fed-4e2f-a3e6-76eac2ddd1c0}" positionOnPage="23.97,95.3226,mm" rasterBorder="1">
+        <FrameColor alpha="255" blue="0" red="0" green="0"/>
+        <BackgroundColor alpha="255" blue="255" red="255" green="255"/>
+        <LayoutObject>
+          <dataDefinedProperties>
+            <Option type="Map">
+              <Option value="" name="name" type="QString"/>
+              <Option name="properties"/>
+              <Option value="collection" name="type" type="QString"/>
+            </Option>
+          </dataDefinedProperties>
+          <customproperties/>
+        </LayoutObject>
+        <styles>
+          <style name="title" alignment="1" marginBottom="3.5">
+            <styleFont style="" description="Ubuntu,16,-1,5,50,0,0,0,0,0"/>
+          </style>
+          <style name="group" alignment="1" marginTop="3">
+            <styleFont style="" description="Ubuntu,14,-1,5,50,0,0,0,0,0"/>
+          </style>
+          <style name="subgroup" alignment="1" marginTop="3">
+            <styleFont style="" description="Ubuntu,12,-1,5,50,0,0,0,0,0"/>
+          </style>
+          <style name="symbol" alignment="1" marginTop="2.5">
+            <styleFont style="" description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
+          </style>
+          <style marginLeft="2" name="symbolLabel" alignment="1" marginTop="2">
+            <styleFont style="" description="Ubuntu,12,-1,5,50,0,0,0,0,0"/>
+          </style>
+        </styles>
+      </LayoutItem>
+      <LayoutItem positionOnPage="0,-7.10543e-15,mm" mapRotation="0" size="297,210,mm" groupUuid="" templateUuid="{2c17c4fd-1fed-4e2f-a3e6-76eac2ddd1c0}" uuid="{2c17c4fd-1fed-4e2f-a3e6-76eac2ddd1c0}" visibility="1" drawCanvasItems="true" followPresetName="" referencePoint="0" positionLock="false" outlineWidthM="0.3,mm" excludeFromExports="0" frame="false" labelMargin="0,mm" blendMode="0" followPreset="false" position="0,-7.10543e-15,mm" id="" background="true" type="65639" mapFlags="0" frameJoinStyle="miter" opacity="1" keepLayerSet="false" itemRotation="0" zValue="1">
+        <FrameColor alpha="255" blue="0" red="0" green="0"/>
+        <BackgroundColor alpha="255" blue="255" red="255" green="255"/>
+        <LayoutObject>
+          <dataDefinedProperties>
+            <Option type="Map">
+              <Option value="" name="name" type="QString"/>
+              <Option name="properties"/>
+              <Option value="collection" name="type" type="QString"/>
+            </Option>
+          </dataDefinedProperties>
+          <customproperties/>
+        </LayoutObject>
+        <Extent xmax="641623.6904574231011793" ymin="8778128.34488740563392639" ymax="8787558.12675836682319641" xmin="628287.28466849273536354"/>
+        <LayerSet/>
+        <AtlasMap margin="0.10000000000000001" scalingMode="2" atlasDriven="0"/>
+        <labelBlockingItems/>
+      </LayoutItem>
+      <customproperties>
+        <property value="png" key="atlasRasterFormat"/>
+      </customproperties>
+      <Atlas enabled="0" filenamePattern="'output_'||@atlas_featurenumber" pageNameExpression="" hideCoverage="0" sortFeatures="0" filterFeatures="0" coverageLayer=""/>
+    </Layout>
+  </Layouts>
+  <Bookmarks/>
+  <ProjectViewSettings UseProjectScales="0">
+    <Scales/>
+  </ProjectViewSettings>
+  <ProjectDisplaySettings>
+    <BearingFormat id="bearing">
+      <Option type="Map">
+        <Option value="" name="decimal_separator" type="QChar"/>
+        <Option value="6" name="decimals" type="int"/>
+        <Option value="0" name="direction_format" type="int"/>
+        <Option value="0" name="rounding_type" type="int"/>
+        <Option value="false" name="show_plus" type="bool"/>
+        <Option value="true" name="show_thousand_separator" type="bool"/>
+        <Option value="false" name="show_trailing_zeros" type="bool"/>
+        <Option value="" name="thousand_separator" type="QChar"/>
+      </Option>
+    </BearingFormat>
+  </ProjectDisplaySettings>
+</qgis>
