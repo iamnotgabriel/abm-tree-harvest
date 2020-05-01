@@ -14,7 +14,7 @@ class 6 = [50, 60)
 ...
 class 9 = [80, inf)
 ]]--
-NAME = "braz_2017"
+NAME = "canneti"
 IDAs = {}
 IDAs["braz_2017"] = {
     0.291,        -- class1
@@ -104,7 +104,7 @@ cell = Cell{
     regen = function(self)
         for i = 8, 1, -1 do
             local growing = 0
-            growing = self["class"..i.."_sum"] * 0.20 * YPL * INC[i] / 2
+            growing = self["class"..i.."_sum"] * 0.30 * YPL * INC[i] / 3
             growing = round(growing)
             if self["class"..i.."_sum"] == 1 then
                 growing = 1
@@ -214,8 +214,8 @@ end
 print(cs:all_trees())
 t:run(time//YPL)
 print("Saving output...")
---df:save(NAME.."/"..NAME.."ex2.csv")
---cuts:save(NAME.."/cutsex2.csv")
---cs:save(NAME.."ex2", {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
+df:save(NAME.."/"..NAME.."ex3.csv")
+cuts:save(NAME.."/cutsex3.csv")
+cs:save(NAME.."ex3", {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
 print("Output saved")
 print(cs:all_trees())

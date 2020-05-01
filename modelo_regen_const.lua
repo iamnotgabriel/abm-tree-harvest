@@ -14,7 +14,7 @@ class 6 = [50, 60)
 ...
 class 9 = [80, inf)
 ]]--
-NAME = "braz_2014"
+NAME = "castro"
 IDAs = {}
 IDAs["braz_2014"] = .438
 IDAs["castro"] = .223
@@ -43,7 +43,7 @@ cell = Cell{
         local reman = self:trees_count(DMC-2, DMC-1)
 
         -- remaining trees should be at least 10% of cut trees
-        if reman < seeds  then
+        if reman < seeds and cut > 0 then
             cut = cut - (seeds - reman)
             reman = seeds
         end
