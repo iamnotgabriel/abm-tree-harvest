@@ -24,7 +24,7 @@ DMC = 6           -- class dmc of (50 cm)
 NEW_TREES = 16    -- tree/ha/ano
 CUT_CICLE = 30    -- lapse between cut cicles
 YPL = 10          -- years per loop
-time = 90         -- years of simulation
+time = 120        -- years of simulation
 DAMAGE_EXP = 82   -- damage during exploaration
 DAMAGE_AFTER = 64 -- damage after exploration
 
@@ -65,7 +65,7 @@ cell = Cell{
             self["class"..c.."_sum"] = 0
         end
     end,
-    new_trees = function() 
+    new_trees = function(self)
         self.class1_sum = self.class1_sum + NEW_TREES * YPL
     end,
     extract = function(self)
@@ -149,7 +149,7 @@ t = Timer{
             local curr = t:getTime()
             DIAM = DIAM + INC * YPL
 
-            if DIAM >= 10 then 
+            if DIAM >= 10 then
                 cs:regen()
                 DIAM =  DIAM - 10
             end
@@ -175,7 +175,7 @@ end
 
 t:run(time//YPL)
 print("Saving output...")
-df:save(NAME.."/"..NAME.."cex.csv")
-cuts:save(NAME.."/cutscex.csv")
-cs:save(NAME.."cex", {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
+df:save(NAME.."/"..NAME.."cex2.csv")
+cuts:save(NAME.."/cutscex2.csv")
+--cs:save(NAME.."cex", {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
 print("Output saved")
