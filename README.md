@@ -5,7 +5,7 @@ TO DO project decription
 ### [model_regen_percent](https://github.com/gfborges/abm-tree-harvest/blob/master/modelo_regen_percent.lua)
 Increment based on percentages of number of trees inside the given class.
 
-### [model_regen_const](https://github.com/gfborges/abm-tree-harvest/blob/master/modelo_regen_const.lua
+### [model_regen_const](https://github.com/gfborges/abm-tree-harvest/blob/master/modelo_regen_const.lua)
 Increment is constant in all classes and is based on a mean diameter.
 
 ### [model_regen_groups.lua](https://github.com/gfborges/abm-tree-harvest/blob/master/modelo_regen_groups.lua)
