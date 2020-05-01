@@ -11,10 +11,10 @@ class 1 = [0, 10)
 class 2 = [10,20)
 ...
 class 6 = [50, 60)
-...
+
 class 9 = [80, inf)
 ]]--
-NAME = "canneti"
+NAME = "borges"
 IDAs = {}
 IDAs["braz_2017"] = {
     0.291,        -- class1
@@ -113,7 +113,7 @@ cell = Cell{
             self["class"..i.."_sum"] = self["class"..i.."_sum"] - growing
         end
         -- Adding new trees
-        self.class1_sum = self.class1_sum + NEW_TREES * YPL
+        -- self.class1_sum = self.class1_sum + NEW_TREES * YPL
     end,
     extract = function(self)
         local trees_total = self.trees_cut
@@ -197,7 +197,7 @@ t = Timer{
             cs:regen()
             cs:update_dest()
             if curr%(CUT_CICLE//YPL) == 0 then
-                cuts:add{cut=cs:trees_cut()}
+                --cuts:add{cut=cs:trees_cut()}
                 --cs:extract()
             end
             toDF()
@@ -214,8 +214,8 @@ end
 print(cs:all_trees())
 t:run(time//YPL)
 print("Saving output...")
-df:save(NAME.."/"..NAME.."ex3.csv")
-cuts:save(NAME.."/cutsex3.csv")
-cs:save(NAME.."ex3", {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
+--df:save(NAME.."/"..NAME.."ex3.csv")
+--cuts:save(NAME.."/cutsex3.csv")
+cs:save(NAME, {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
 print("Output saved")
 print(cs:all_trees())
