@@ -43,7 +43,7 @@ cell = Cell{
         local reman = self:trees_count(DMC-2, DMC-1)
 
         -- remaining trees should be at least 10% of cut trees
-        if reman < seeds  then
+        if reman < seeds and cut > 0  then
             cut = cut - (seeds - reman)
             reman = seeds
         end
