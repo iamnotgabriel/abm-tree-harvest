@@ -26,4 +26,4 @@ Input (CELL_GRID_ENTRADA_MODELO) and output of all runs
 Results of runs have one of the four endings :
 * pp is adding new trees, but there is no extraction
 * ex is adding new trees with extration (a number in the end is a change in equation of the model)
-* _no sufix means result without new trees and no extration_ 
+* _no sufix means result without new trees and no extraction_ 
