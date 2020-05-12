@@ -14,12 +14,12 @@ class 6 = [50, 60)
 ...
 class 9 = [80, inf)
 ]]--
--- author year   death/new_trees
--- Higuchi 2004  4.7 / 5.1   +
--- MPEG 2004     4.18/ 3.68  - 
--- Versides 2010   8 / 3.49  --
--- Andrade 2018 T0 = 11.64,T1 = 21.3 / T0= 11.87,T1 = 26.37
--- Souza  2012    6.7/ 11.35
+-- author year   death
+-- Higuchi 2004  4.7
+-- MPEG 2004     4.18
+-- Versides 2010   8
+-- Andrade 2018 T0 = 11.64, T1 = 21.3 
+-- Souza  2012    6.7
 
 NAME = "borges"
 NEW_TREES = 16      -- tree/ha/year (11.35)
@@ -79,7 +79,7 @@ DAMAGE_EXP = 82   -- damage during exploaration
 DAMAGE_AFTER = 64 -- damage after exploration
 
 cell = Cell{
-    trees_cut   = 0,
+    trees_cut = 0,
     trees_reman = 0,
     trees_seeds = 0,
     all_trees = 0,
@@ -124,16 +124,27 @@ cell = Cell{
         -- Adding new trees
         self.class1_sum = self.class1_sum + NEW_TREES * YPL
         -- Death
-        local death = 0
-        local c = 1
-        while death < (DEATH * YPL)and c <= 9 do 
-            death = death + self["class"..c.."_sum"]
+        self.death(DEATH)
+        
+    end,
+    death = function(self, total, right, left, i)
+        i = i or 1
+        right = right or 1
+        left = left or 9
+        local c
+        if i > 0 then 
+            c = right 
+        else 
+            c = left 
+        end
+
+        repeat
+            total = total - self["class"..c.."_sum"]
             self["class"..c.."_sum"] = 0
-            if death > DEATH then
-                self["class"..c.."_sum"] = death - DEATH
-            end
-            c = c + 1
-        end 
+            if total < 0 then
+                self["class"..c.."_sum"] = -total
+            c = c + i
+        until total < 0 or c < right or c > left
     end,
     extract = function(self)
         local trees_total = self.trees_cut
@@ -152,19 +163,7 @@ cell = Cell{
         end
         self.trees_cut = 0
         -- damaging
-        c = 1
-        local dmg = 0
-        local dmg_total = DAMAGE_AFTER + DAMAGE_EXP
-        while dmg > dmg_total and c <= 9 do
-            dmg = dmg + self["class"..c.."_sum"]
-            if dmg > dmg_total then
-                self["class"..c.."_sum"] = dmg_total - dmg
-                dmg = dmg_total
-            else
-                self["class"..c.."_sum"]  = 0
-            end
-            c = c + 1
-        end
+        self.death(DAMAGE_EXP + DAMAGE_AFTER)
     end
 }
 
