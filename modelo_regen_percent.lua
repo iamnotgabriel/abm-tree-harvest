@@ -124,27 +124,31 @@ cell = Cell{
         -- Adding new trees
         self.class1_sum = self.class1_sum + NEW_TREES * YPL
         -- Death
-        self.death(DEATH)
-        
+        local young = math.ceil(DEATH * YPL * 0.6)
+        self.death(young)
+        self.death(DEATH - young, 9, 1)
     end,
-    death = function(self, total, right, left, i)
-        i = i or 1
-        right = right or 1
-        left = left or 9
-        local c
-        if i > 0 then 
-            c = right 
+    death = function(self, total, left, right)
+        right = right or 9
+        left = left or 1
+        local i
+        if left < right then 
+            i = 1
         else 
-            c = left 
+            i = -1
         end
 
-        repeat
+        for c = left, right, i do
+            if total <= 0 then 
+                break 
+            end
             total = total - self["class"..c.."_sum"]
             self["class"..c.."_sum"] = 0
             if total < 0 then
                 self["class"..c.."_sum"] = -total
+            end
             c = c + i
-        until total < 0 or c < right or c > left
+        end 
     end,
     extract = function(self)
         local trees_total = self.trees_cut
@@ -233,7 +237,7 @@ end
 
 t:run(time//YPL)
 print("Saving output...")
-df:save(NAME.."/"..NAME.."ex3.csv")
-cuts:save(NAME.."/cutsex3.csv")
-cs:save(NAME, {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
+df:save(NAME.."/"..NAME.."ex.csv")
+--cs:save(NAME, {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
+cuts:save(NAME.."/cutsex.csv")
 print("Output saved")
