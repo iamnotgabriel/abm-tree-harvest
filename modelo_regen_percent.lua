@@ -2,7 +2,7 @@ import("gis")
 
 proj  = Project {
     file = "project_regen.qgs",
-    grid = "dados/CELL_GRID_ENTRADA_MODELO.shp",
+    grid = "dados/input/CELL_GRID_ENTRADA_MODELO.shp",
     clean = true,
 }
 
@@ -18,12 +18,12 @@ class 9 = [80, inf)
 -- Higuchi 2004  4.7
 -- MPEG 2004     4.18
 -- Versides 2010   8
--- Andrade 2018 T0 = 11.64, T1 = 21.3 
+-- Andrade 2018 T0 = 11.64, T1 = 21.3
 -- Souza  2012    6.7
 
-NAME = "borges"
-NEW_TREES = 16      -- tree/ha/year (11.35)
-DEATH = 0           -- tree/ha/year (6.7)
+NAME = "borges"     -- select an diametric increment
+NEW_TREES = 16        -- tree/ha/year
+DEATH =   4.18        -- tree/ha/year
 IDAs = {}
 IDAs["braz_2017"] = {
     0.291,        -- class1
@@ -70,7 +70,7 @@ IDAs["oliveira"] = {
     .838,
 }
 
-INC = IDAs[NAME]
+INC = IDAs[NAME]  -- diametric increment by class
 DMC = 6           -- class dmc of (50 cm)
 CUT_CICLE = 30    -- lapse between cut cicles
 YPL = 10          -- years per loop
@@ -89,18 +89,27 @@ cell = Cell{
     update_dest = function(self)
         local cut = self:trees_count(DMC, 9)
         local seeds = math.ceil(cut * 0.1)
-        cut = cut - seeds
         local reman = self:trees_count(DMC-2, DMC-1)
 
         -- remaining trees should be at least 10% of cut trees
-        if reman < seeds and cut > 0  then
-            cut = cut - (seeds - reman)
-            reman = seeds
+        if reman < seeds then
+            if (cut - seeds) > seeds then
+                cut = cut - 2 * seeds
+                reman = seeds
+            elseif cut > 0 then
+                reman = reman + cut
+                cut = 0
+            end
         end
         self.trees_cut = cut
         self.trees_seeds = seeds
         self.trees_reman = reman
         self.all_trees = self:trees_count(1,9)
+    end,
+    update = function(self)
+        self:grow()
+        self:birth()
+        self:death(DEATH*YPL)
     end,
     trees_count = function(self, from, to)
         local trees = 0
@@ -109,11 +118,13 @@ cell = Cell{
         end
         return trees
     end,
-    regen = function(self)
-        -- Growing trees
+    birth = function(self)
+        self.class1_sum = self.class1_sum + NEW_TREES * YPL
+    end,
+    grow = function(self)
         for i = 8, 1, -1 do
             local growing = 0
-            growing = self["class"..i.."_sum"] * 0.30 * YPL * INC[i] / 3
+            growing = self["class"..i.."_sum"] * 0.10 * YPL * INC[i]
             growing = round(growing)
             if self["class"..i.."_sum"] == 1 then
                 growing = 1
@@ -121,34 +132,25 @@ cell = Cell{
             self["class"..(i+1).."_sum"] = self["class"..(i+1).."_sum"] + growing
             self["class"..i.."_sum"] = self["class"..i.."_sum"] - growing
         end
-        -- Adding new trees
-        self.class1_sum = self.class1_sum + NEW_TREES * YPL
-        -- Death
-        local young = math.ceil(DEATH * YPL * 0.6)
-        self.death(young)
-        self.death(DEATH - young, 9, 1)
     end,
     death = function(self, total, left, right)
         right = right or 9
         left = left or 1
-        local i
-        if left < right then 
-            i = 1
-        else 
+        local i = 1
+        if left > right then
             i = -1
         end
 
         for c = left, right, i do
-            if total <= 0 then 
-                break 
+            if total <= 0 then
+                break
             end
             total = total - self["class"..c.."_sum"]
             self["class"..c.."_sum"] = 0
             if total < 0 then
                 self["class"..c.."_sum"] = -total
             end
-            c = c + i
-        end 
+        end
     end,
     extract = function(self)
         local trees_total = self.trees_cut
@@ -167,7 +169,7 @@ cell = Cell{
         end
         self.trees_cut = 0
         -- damaging
-        self.death(DAMAGE_EXP + DAMAGE_AFTER)
+        self:death(DAMAGE_EXP + DAMAGE_AFTER)
     end
 }
 
@@ -176,6 +178,15 @@ cs = CellularSpace {
     layer  = "grid",
     missing = 0,
     instance = cell,
+}
+
+map = Map{
+    target = cs,
+    select = "all_trees",
+    color = "Greens",
+    min = 0,
+    max = 60,
+    slices = 6,
 }
 
 df = DataFrame{
@@ -215,17 +226,35 @@ toDF = function()
 end
 
 t = Timer{
-    Event{ action = function()
-            local curr = t:getTime()
-            cs:regen()
+    Event{priority = -5, action = function()
+            cs:update()
             cs:update_dest()
-            if curr%(CUT_CICLE//YPL) == 0 then
-                cuts:add{cut=cs:trees_cut()}
-                cs:extract()
-            end
-            toDF()
+            print(cs:trees_cut())
+            map:update()
     end},
+    Event{period=CUT_CICLE//YPL, priority = 0, action = function()
+            local cut = cs:trees_cut()
+            print("extracted: "..cut)
+            cuts:add{cut=cut}
+            cs:extract()
+    end},
+    Event{priority = 5,action=function()
+            map:update()
+            toDF()
+    end}
 }
+
+
+print("mean: "..cs:all_trees()/#cs)
+t:run(time//YPL)
+print("mean: "..cs:all_trees()/#cs)
+print("Saving output...")
+--[[
+df:save(NAME.."/"..NAME.."ex.csv")
+cs:save("../output/"..NAME,{"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
+cuts:save(NAME.."/cutsex.csv")
+]]--
+print("Output saved")
 
 round = function(x)
     if x%1 >= 0.5 then
@@ -234,10 +263,3 @@ round = function(x)
         return math.floor(x)
     end
 end
-
-t:run(time//YPL)
-print("Saving output...")
-df:save(NAME.."/"..NAME.."ex.csv")
---cs:save(NAME, {"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
-cuts:save(NAME.."/cutsex.csv")
-print("Output saved")
