@@ -21,9 +21,9 @@ class 9 = [80, inf)
 -- Andrade 2018 T0 = 11.64, T1 = 21.3
 -- Souza  2012    6.7
 
-NAME = "borges"     -- select an diametric increment
+NAME = "borges"     -- select a diametric increment
 NEW_TREES = 16        -- tree/ha/year
-DEATH =   4.18        -- tree/ha/year
+DEATH =  11.64        -- tree/ha/year
 IDAs = {}
 IDAs["braz_2017"] = {
     0.291,        -- class1
@@ -93,7 +93,7 @@ cell = Cell{
 
         -- remaining trees should be at least 10% of cut trees
         if reman < seeds then
-            if (cut - seeds) > seeds then
+            if cut > 2*seeds then
                 cut = cut - 2 * seeds
                 reman = seeds
             elseif cut > 0 then
@@ -109,7 +109,7 @@ cell = Cell{
     update = function(self)
         self:grow()
         self:birth()
-        self:death(DEATH*YPL)
+        self:death(round(DEATH*YPL))
     end,
     trees_count = function(self, from, to)
         local trees = 0
@@ -123,7 +123,7 @@ cell = Cell{
     end,
     grow = function(self)
         for i = 8, 1, -1 do
-            local growing = 0
+            local growing
             growing = self["class"..i.."_sum"] * 0.10 * YPL * INC[i]
             growing = round(growing)
             if self["class"..i.."_sum"] == 1 then
@@ -185,7 +185,7 @@ map = Map{
     select = "all_trees",
     color = "Greens",
     min = 0,
-    max = 60,
+    max = 132,
     slices = 6,
 }
 
@@ -232,7 +232,7 @@ t = Timer{
             print(cs:trees_cut())
             map:update()
     end},
-    Event{period=CUT_CICLE//YPL, priority = 0, action = function()
+    Event{period=CUT_CICLE//YPL, action = function()
             local cut = cs:trees_cut()
             print("extracted: "..cut)
             cuts:add{cut=cut}
@@ -248,12 +248,15 @@ t = Timer{
 print("mean: "..cs:all_trees()/#cs)
 t:run(time//YPL)
 print("mean: "..cs:all_trees()/#cs)
+max  = 0
+forEachCell(cs, function(self)
+        if max < self.all_trees then max = self.all_trees end
+    end)
+print("max: "..max)
 print("Saving output...")
---[[
 df:save(NAME.."/"..NAME.."ex.csv")
-cs:save("../output/"..NAME,{"class1_sum","class2_sum","class3_sum","class4_sum","class5_sum","class6_sum","class7_sum","class8_sum","class9_sum", "trees_cut","trees_seeds", "trees_reman"})
+cs:save(NAME,{"trees_cut","trees_seeds", "trees_reman"})
 cuts:save(NAME.."/cutsex.csv")
-]]--
 print("Output saved")
 
 round = function(x)
