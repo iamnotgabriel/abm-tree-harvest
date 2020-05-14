@@ -16,7 +16,7 @@ Classes are a collection of tree groups, each group has a mean diameter.
 There is a paste for results of every author(Annual diametric increment)
 
 ### Notebooks
-_TODO change of notebook to script_
+_TODO change notebooks to script_
 Generate all charts
 
 ### Dados
