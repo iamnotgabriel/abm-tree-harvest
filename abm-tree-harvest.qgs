@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.4.1-Madeira" projectname="No title">
+<qgis projectname="No title" version="3.4.1-Madeira">
   <homePath path=""/>
   <title>No title</title>
   <autotransaction active="0"/>
@@ -17,7 +17,7 @@
       <geographicflag>true</geographicflag>
     </spatialrefsys>
   </projectCrs>
-  <mapcanvas annotationsVisible="1" name="theMapCanvas">
+  <mapcanvas name="theMapCanvas" annotationsVisible="1">
     <units>unknown</units>
     <extent>
       <xmin>631905.88</xmin>
@@ -29,22 +29,22 @@
     <rendermaptile>0</rendermaptile>
   </mapcanvas>
   <layer-tree-group>
-    <layer-tree-layer name="grid" providerKey="ogr" expanded="1" id="CELL_GRID_ENTRADA_MODELO_eb043ccf_60a4_4a5c_adc4_ec46f9afb8ee" checked="Qt::Checked" source="./dados\input\CELL_GRID_ENTRADA_MODELO.shp"/>
-    <layer-tree-layer name="result" providerKey="ogr" expanded="1" id="result_03ff0fce_87e9_4ce7_8103_8baea199b097" checked="Qt::Checked" source="./dados\input\result.shp"/>
+    <layer-tree-layer id="CELL_GRID_ENTRADA_MODELO_14d43a49_0ec6_4229_8f22_5874a29bd902" name="grid" source="./dados\input\CELL_GRID_ENTRADA_MODELO.shp" expanded="1" checked="Qt::Checked" providerKey="ogr"/>
+    <layer-tree-layer id="result_30d3bdea_2fd0_46fd_ba8a_34c51fcbc06d" name="result" source="./dados\input\result.shp" expanded="1" checked="Qt::Checked" providerKey="ogr"/>
     <custom-order enabled="0">
-      <item>CELL_GRID_ENTRADA_MODELO_eb043ccf_60a4_4a5c_adc4_ec46f9afb8ee</item>
-      <item>result_03ff0fce_87e9_4ce7_8103_8baea199b097</item>
+      <item>CELL_GRID_ENTRADA_MODELO_14d43a49_0ec6_4229_8f22_5874a29bd902</item>
+      <item>result_30d3bdea_2fd0_46fd_ba8a_34c51fcbc06d</item>
     </custom-order>
   </layer-tree-group>
   <projectlayers>
-    <maplayer simplifyMaxScale="1" refreshOnNotifyMessage="" type="vector" maxScale="0" geometry="MultiPolygon" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0" readOnly="0" simplifyLocal="1" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" simplifyAlgorithm="0" labelsEnabled="0" minScale="1e+08" autoRefreshEnabled="0" simplifyDrawingHints="1" simplifyDrawingTol="1">
+    <maplayer type="vector" geometry="MultiPolygon" labelsEnabled="0" simplifyDrawingHints="1" styleCategories="AllStyleCategories" simplifyDrawingTol="1" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyLocal="1" simplifyAlgorithm="0" maxScale="0" refreshOnNotifyMessage="" autoRefreshTime="0" readOnly="0" hasScaleBasedVisibilityFlag="0" autoRefreshEnabled="0" minScale="1e+08">
       <extent>
         <xmin>631905.88</xmin>
         <ymin>8785430.2</ymin>
         <xmax>634705.88</xmax>
         <ymax>8785430.2</ymax>
       </extent>
-      <id>CELL_GRID_ENTRADA_MODELO_eb043ccf_60a4_4a5c_adc4_ec46f9afb8ee</id>
+      <id>CELL_GRID_ENTRADA_MODELO_14d43a49_0ec6_4229_8f22_5874a29bd902</id>
       <datasource>./dados\input\CELL_GRID_ENTRADA_MODELO.shp</datasource>
       <layername>grid</layername>
       <srs>
@@ -61,14 +61,14 @@
       </srs>
       <provider encoding="System">ogr</provider>
     </maplayer>
-    <maplayer simplifyMaxScale="1" refreshOnNotifyMessage="" type="vector" maxScale="0" geometry="MultiPolygon" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0" readOnly="0" simplifyLocal="1" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" simplifyAlgorithm="0" labelsEnabled="0" minScale="1e+08" autoRefreshEnabled="0" simplifyDrawingHints="1" simplifyDrawingTol="1">
+    <maplayer type="vector" geometry="MultiPolygon" labelsEnabled="0" simplifyDrawingHints="1" styleCategories="AllStyleCategories" simplifyDrawingTol="1" refreshOnNotifyEnabled="0" simplifyMaxScale="1" simplifyLocal="1" simplifyAlgorithm="0" maxScale="0" refreshOnNotifyMessage="" autoRefreshTime="0" readOnly="0" hasScaleBasedVisibilityFlag="0" autoRefreshEnabled="0" minScale="1e+08">
       <extent>
         <xmin>631905.88</xmin>
         <ymin>8785430.2</ymin>
         <xmax>634705.88</xmax>
         <ymax>8785430.2</ymax>
       </extent>
-      <id>result_03ff0fce_87e9_4ce7_8103_8baea199b097</id>
+      <id>result_30d3bdea_2fd0_46fd_ba8a_34c51fcbc06d</id>
       <datasource>./dados\input\result.shp</datasource>
       <layername>result</layername>
       <srs>
@@ -87,7 +87,7 @@
     </maplayer>
   </projectlayers>
   <layerorder>
-    <layer id="CELL_GRID_ENTRADA_MODELO_eb043ccf_60a4_4a5c_adc4_ec46f9afb8ee"/>
-    <layer id="result_03ff0fce_87e9_4ce7_8103_8baea199b097"/>
+    <layer id="CELL_GRID_ENTRADA_MODELO_14d43a49_0ec6_4229_8f22_5874a29bd902"/>
+    <layer id="result_30d3bdea_2fd0_46fd_ba8a_34c51fcbc06d"/>
   </layerorder>
 </qgis>
