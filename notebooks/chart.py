@@ -20,7 +20,6 @@ title = {"fontsize":18, "fontfamily":"Arial", "fontweight":"bold"}
 axis = {"fontsize":17, "fontfamily":"Arial"}
 # droping unimportant increments
 df = df.drop(["Castro", "Braz_2014"], axis = 1)
-
 # filling nan with weighted mean 
 df.loc[10] = [4,1,1,1,1,1] # weight by number of tree species studied
 mean = {1: (df.loc[1,:"Borges"]*df.loc[10]).sum()/df.loc[10].sum(),

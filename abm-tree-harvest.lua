@@ -76,7 +76,7 @@ BIRTH_DEATH = {
     oliveira_t3 = {birth=3.5, death=2.5},  -- +1.0
     gouveia_t1  = {birth=3.3, death=2.6},  -- +0.7
     gouveia_t2  = {birth=3.78, death=2.94},-- +0.84
-    oliveira_16 = {birth=4.57, death=3.62}-- +0.95
+    oliveira_16 = {birth=4.57, death=3.62} -- +0.95
 }
 DMC = 6           -- class dmc of (50 cm)
 CUT_CICLE = 30    -- lapse between cut cicles
@@ -86,6 +86,14 @@ DAMAGE_EXP = 18   -- collateral damage of exploration exploaration
 
 DEATH = (1+BIRTH_DEATH[BD_DT].death/100)^YPL - 1
 NEW_TREES = (1+BIRTH_DEATH[BD_DT].birth/100)^YPL - 1
+
+-- utils
+function min(a,b)
+    if a <= b then
+        return a
+    end
+    return b
+end
 
 cell = Cell{
     trees_cut = 0,
@@ -103,23 +111,15 @@ cell = Cell{
         -- calc cut trees - illegal trees/unvaluabe trees
         local cut = self:trees_count(DMC, 9)
         local dontcut = self.nao_comerc + self.proib_cort
-        if cut >= dontcut then
-            cut = cut - dontcut
-            dontcut = 0
-        elseif cut > 0 then
-            dontcut = dontcut - cut
-            cut = 0
-        end
+        local aux = min(dontcut, cut)
+        cut = cut - aux
+        dontcut = dontcut - aux
         -- calc seed carriers/ remaining trees - illegal/unvaluable
         local seeds = math.ceil(cut * 0.1)
         local reman = self:trees_count(DMC-2, DMC-1)
-        if reman >= dontcut then
-            reman = reman - dontcut
-            dontcut = 0
-        elseif reman > 0 then
-            dontcut = dontcut - reman
-            reman = 0
-        end
+        aux = min(dontcut, reman)
+        reman = reman - aux
+        dontcut = dontcut - aux
         -- remaining trees should be at least 10% of cut trees
         if reman < seeds then
             if cut > 2*seeds then
@@ -150,8 +150,8 @@ cell = Cell{
         return trees * trees * math.pi / 40000
     end,
     birth = function(self, new_trees)
-        self.nao_comerc = new_trees * self.q_nao_comerc
-        self.proib_cort = new_trees * self.q_proib_cort
+        self.nao_comerc = self.nao_comerc + new_trees * self.q_nao_comerc
+        self.proib_cort = self.proib_cort + new_trees * self.q_proib_cort
         self.class2_sum = self.class2_sum + new_trees
         self.all_trees = self.all_trees + new_trees
     end,
@@ -160,9 +160,9 @@ cell = Cell{
             local growing
             local class = "class"..i.."_sum"
             growing = self[class] * 0.1 * YPL  * IDA[IDA_DT][i] + self.remainder[i]
-            if growing > self[class] then growing = self[class] end
+            growing = min(self[class], growing)
             self.remainder[i] = growing % 1
-            growing  = math.floor(growing)
+            growing = math.floor(growing)
             self["class"..(i+1).."_sum"] = self["class"..(i+1).."_sum"] + growing
             self[class] = self[class] - growing
         end
@@ -183,6 +183,10 @@ cell = Cell{
         end
         self.all_trees = self:trees_count(1,9)
         self.died = self.died + died
+        self.nao_comerc = self.nao_comerc - died * self.q_nao_comerc
+        if self.nao_comerc < 0 then self.nao_comerc = 0 end
+        self.proib_cort = self.proib_cort - died * self.q_proib_cort
+        if self.nao_comerc < 0 then self.nao_comerc = 0 end
         return total
     end,
     extract = function(self, goal)
@@ -195,25 +199,23 @@ cell = Cell{
             class = "class"..c.."_sum"
             cutted = cutted + self[class]
             goal = goal - self[class]
-            self.died = self.died + self[class] * c
             self[class] = 0
             c = c + 1
         end
         -- make shure to cut just right amount
         if goal < 0 then
             self[class] = -goal
-            self.died = self.died - self[class] * (c-1)
             cutted = cutted - self[class]
             goal = 0
         end
         if cutted > goal then
             self[class] = goal - cutted
             cutted = cutted - self[class]
-            self.died = self.died + self[class] * (c-1)
             goal = 0
         end
         self.all_trees = self.all_trees - cutted
         self.trees_cut = self.trees_cut - cutted
+        self.died = self.died + 0
         return cutted
     end
 }
@@ -223,34 +225,32 @@ cs = CellularSpace {
     layer  = "grid",
     missing = 0,
     instance = cell,
-    born = function(self, new_trees)
+    Birth = function(self, new_trees)
         birth_t:rebuild()
         while new_trees > 0 do
             forEachCell(birth_t, function(cell)
                     if new_trees == 0 then return end
-                    local trees = cell.died
-                    if trees > new_trees then trees = new_trees end
+                    local trees = min(cell.died, new_trees)
                     cell:birth(trees)
                     new_trees = new_trees - trees
-                    cell.died = 0
+                    cell.died = cell.died - trees
                 end)
             if new_trees == 0 then return end
             forEachCell(birth_t, function(cell)
                 if new_trees == 0 then return end
                 forEachNeighbor(cell,function(other)
-                    local trees = 1
+                    local trees = min(1, new_trees)
                     if new_trees == 0 then return end
-                    if trees > new_trees  then trees = new_trees end
                     other:birth(trees)
-                    if other.died > trees then
-                        other.died = other.died - 1
+                    if other.died >= trees then
+                        other.died = other.died - trees
                     end
                     new_trees = new_trees - trees
                 end)
             end)
         end
     end,
-    kill = function(self, dead)
+    Death = function(self, dead)
         random:reSeed(t:getTime())
         for _ = 1, dead do
             local cell
@@ -260,7 +260,7 @@ cs = CellularSpace {
             cell:death(1,1,9)
         end
     end,
-    extraction = function(self, goal)
+    Extract = function(self, goal)
         extract_t:rebuild()
         forEachCell(extract_t, function(cell)
             if goal == 0 then return end
@@ -270,7 +270,9 @@ cs = CellularSpace {
     count_all = function(self)
         local trees = 0
         forEachCell(self, function(cell)
-                trees = trees + cell:trees_count(1,9)
+                for c=1,9 do
+                    trees = trees + cell["class"..c.."_sum"]
+                end
             end)
         return trees
     end
@@ -358,17 +360,15 @@ function stats()
     print("----------")
     local max = cs:sample().all_trees
     local min = max
-    local total = 0
     forEachCell(cs, function(self)
             if min > self.all_trees then min = self.all_trees end
             if max < self.all_trees then max = self.all_trees end
-            total = total + self:trees_count(1,9)
         end)
     print("mean: "..cs:all_trees()/#cs)
     print("min: "..min)
     print("max: "..max)
     print("cut:"..cs:trees_cut())
-    print("total: "..total)
+    print("total: "..cs:all_trees())
     print("----------")
 end
 print("before: "..cs:count_all())
@@ -376,21 +376,21 @@ print("before (cut): "..cs:trees_cut())
 t = Timer{
     Event{start = 1, priority = -5, period=CUT_CICLE//YPL,
         action = function()
-            --[[stats()
+            stats()
             local ext = cs:trees_cut() * 0.6
             print("extracted: "..ext)
             cs:extraction(ext)
             print(9813 - ext, cs:all_trees())
             cuts:add{cut=ext}
-            stats()]]--
+            stats()
     end},
     Event{action = function()
             local all_trees = cs:all_trees()
             local new_trees = all_trees * NEW_TREES
             local dead_trees = all_trees * DEATH
             print(cs:all_trees())
-            cs:kill(dead_trees)
-            cs:born(new_trees)
+            cs:Death(dead_trees)
+            cs:Birth(new_trees)
             print(">", new_trees)
             print("<", dead_trees)
             cs:growth()
@@ -415,4 +415,3 @@ cuts:save("dados/output/cuts-"..arq_name..".csv")
 all_trees_m:save("all_trees.png")
 trees_cut_m:save("trees_cut.png")
 print("Output saved")
-
