@@ -16,8 +16,8 @@ class 6 = [50, 60)
 class 9 = [80, inf)
 ]]--
 
-IDA_DT = "canneti"   -- select a diametric increment
-BD_DT =  "higuchi" -- select birth and death rate
+IDA_DT = "braz_2017"   -- select a diametric increment
+BD_DT =  "gouveia_t2" -- select birth and death rate
 arq_name = IDA_DT.."-"..BD_DT
 IDA = {             -- annual diametric increment
     braz_2017 = {
@@ -72,9 +72,9 @@ BIRTH_DEATH = {
     higuchi =   {birth=0.7, death=0.7},    --  0.00
     rocha =     {birth=0.9, death=0},      -- +0.04
     souza =     {birth=1.9, death=1.13},   -- +0.77
-    oliveira_t0 = {birth=1.2, death=1},    -- +0.2
-    oliveira_t3 = {birth=3.5, death=2.5},  -- +1.0
-    gouveia_t1  = {birth=3.3, death=2.6},  -- +0.7
+    oliveira_t1 = {birth=2, death=2},      --  0.00
+    oliveira_t3 = {birth=3.5, death=2.5},  -- +1.00
+    gouveia_t1  = {birth=3.3, death=2.6},  -- +0.70
     gouveia_t2  = {birth=3.78, death=2.94},-- +0.84
     oliveira_16 = {birth=4.57, death=3.62} -- +0.95
 }
@@ -83,6 +83,8 @@ CUT_CICLE = 30    -- lapse between cut cicles
 YPL = 10          -- years per loop
 time = 90         -- years of simulation
 DAMAGE_EXP = 18   -- collateral damage of exploration exploaration
+FIRST_CLASS = 1   -- start class of new trees
+if BD_DT == "oliveira_16" then FIRST_CLASS = 2 end
 
 DEATH = (1+BIRTH_DEATH[BD_DT].death/100)^YPL - 1
 NEW_TREES = (1+BIRTH_DEATH[BD_DT].birth/100)^YPL - 1
@@ -133,26 +135,22 @@ cell = Cell{
         self.trees_cut = cut
         self.trees_seeds = seeds
         self.trees_reman = reman
-        self.all_trees = self:trees_count(1,9)
+        self.all_trees = self:trees_count()
     end,
     trees_count = function(self, from, to)
+        from = from or 1
+        to = to or 9
         local trees = 0
         for i = from, to do
             trees = trees + self["class"..i.."_sum"]
         end
         return math.floor(trees)
     end,
-    total_basal_area = function(self)
-        local trees = 0
-        for c = 1, 9 do
-            trees = trees + self["class"..c.."_sum"] * (c * 10 - 5)
-        end
-        return trees * trees * math.pi / 40000
-    end,
     birth = function(self, new_trees)
+        local class = "class"..FIRST_CLASS.."_sum"
         self.nao_comerc = self.nao_comerc + new_trees * self.q_nao_comerc
         self.proib_cort = self.proib_cort + new_trees * self.q_proib_cort
-        self.class2_sum = self.class2_sum + new_trees
+        self[class] = self[class] + new_trees
         self.all_trees = self.all_trees + new_trees
     end,
     growth = function(self)
@@ -162,12 +160,14 @@ cell = Cell{
             growing = self[class] * 0.1 * YPL  * IDA[IDA_DT][i] + self.remainder[i]
             growing = min(self[class], growing)
             self.remainder[i] = growing % 1
-            growing = math.floor(growing)
+            growing = growing - self.remainder[i]
             self["class"..(i+1).."_sum"] = self["class"..(i+1).."_sum"] + growing
             self[class] = self[class] - growing
         end
     end,
     death = function(self, total, left, right)
+        left  = left or 1
+        right = right or 9
         local c = left
         local class
         local died = 0
@@ -252,12 +252,14 @@ cs = CellularSpace {
     end,
     Death = function(self, dead)
         random:reSeed(t:getTime())
-        for _ = 1, dead do
+        while dead > 0 do
             local cell
             repeat
                 cell = cs:sample()
             until cell.all_trees > 0
-            cell:death(1,1,9)
+            local trees = min(1, dead)
+            cell:death(trees)
+            dead = dead - trees
         end
     end,
     Extract = function(self, goal)
@@ -331,11 +333,15 @@ df = DataFrame{
     trees_cut = {cs:trees_cut()},
     trees_reman = {cs:trees_reman()},
     trees_seeds = {cs:trees_seeds()},
-    all_trees ={cs:all_trees()}
+    all_trees ={cs:all_trees()},
+    nao_comerc ={cs:nao_comerc()},
+    proib_cort = {cs:proib_cort()}
 }
 
 cuts = DataFrame{
-    cut= {}
+    before = {},
+    cut= {},
+    after = {}
 }
 
 function toDF()
@@ -352,7 +358,9 @@ function toDF()
         trees_cut = cs:trees_cut(),
         trees_reman = cs:trees_reman(),
         trees_seeds = cs:trees_seeds(),
-        all_trees= cs:all_trees()
+        all_trees = cs:all_trees(),
+        nao_comerc = cs:nao_comerc(),
+        proib_cort = cs:proib_cort()
     }
 end
 
@@ -377,11 +385,12 @@ t = Timer{
     Event{start = 1, priority = -5, period=CUT_CICLE//YPL,
         action = function()
             stats()
+            local before = cs:all_trees()
             local ext = cs:trees_cut() * 0.6
             print("extracted: "..ext)
-            cs:extraction(ext)
+            cs:Extract(ext)
             print(9813 - ext, cs:all_trees())
-            cuts:add{cut=ext}
+            cuts:add{cut=ext, after=cs:all_trees(), before=before}
             stats()
     end},
     Event{action = function()
@@ -405,6 +414,7 @@ t = Timer{
 }
 trees_cut_m:save("trees_cut.png")
 t:run(time//YPL)
+cuts:add{cut=0, after=cs:all_trees(), before=before}
 print("count: "..cs:count_all())
 print("all: "..cs:all_trees())
 stats()
