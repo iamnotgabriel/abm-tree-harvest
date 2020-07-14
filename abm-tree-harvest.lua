@@ -1,6 +1,6 @@
 import("gis")
 random= Random()
-
+-- reading the data
 proj  = Project {
     file = "abm-tree-harvest.qgs",
     grid = "dados/input/CELL_GRID_ENTRADA_MODELO.shp",
@@ -20,7 +20,7 @@ IDA_DT = "braz_2017"   -- select a diametric increment
 BD_DT =  "gouveia_t2" -- select birth and death rate
 arq_name = IDA_DT.."-"..BD_DT
 IDA = {             -- annual diametric increment
-    braz_2017 = {
+    braz_2017 = { --  *
         0.291,        -- class1
         0.317,        -- class2 (birth class)
         0.442,        -- class3
@@ -42,7 +42,7 @@ IDA = {             -- annual diametric increment
         .417,
         .0,
     },
-    canneti = {
+    canneti = { --  *
         .283,
         .377,
         .451,
@@ -72,20 +72,23 @@ BIRTH_DEATH = {
     higuchi =   {birth=0.7, death=0.7},    --  0.00
     rocha =     {birth=0.9, death=0},      -- +0.04
     souza =     {birth=1.9, death=1.13},   -- +0.77
-    oliveira_t1 = {birth=2, death=2},      --  0.00
+    oliveira_t1 = {birth=2, death=2},      --  0.00 *
     oliveira_t3 = {birth=3.5, death=2.5},  -- +1.00
     gouveia_t1  = {birth=3.3, death=2.6},  -- +0.70
-    gouveia_t2  = {birth=3.78, death=2.94},-- +0.84
+    gouveia_t2  = {birth=3.78, death=2.94},-- +0.84 *
     oliveira_16 = {birth=4.57, death=3.62} -- +0.95
 }
 DMC = 6           -- class dmc of (50 cm)
 CUT_CICLE = 30    -- lapse between cut cicles
 YPL = 10          -- years per loop
-time = 90         -- years of simulation
+TIME = 90         -- years of simulation
 DAMAGE_EXP = 18   -- collateral damage of exploration exploaration
 FIRST_CLASS = 1   -- start class of new trees
 if BD_DT == "oliveira_16" then FIRST_CLASS = 2 end
+MAX_VOL = 30*722 -- max vol/ha of extraction
+CUT_VOL = 3.3340 -- volume of one cut tree
 
+-- equations
 DEATH = (1+BIRTH_DEATH[BD_DT].death/100)^YPL - 1
 NEW_TREES = (1+BIRTH_DEATH[BD_DT].birth/100)^YPL - 1
 
@@ -155,14 +158,13 @@ cell = Cell{
     end,
     growth = function(self)
         for i = 8, 1, -1 do
-            local growing
+            local growing_trees
             local class = "class"..i.."_sum"
-            growing = self[class] * 0.1 * YPL  * IDA[IDA_DT][i] + self.remainder[i]
-            growing = min(self[class], growing)
-            self.remainder[i] = growing % 1
-            growing = growing - self.remainder[i]
-            self["class"..(i+1).."_sum"] = self["class"..(i+1).."_sum"] + growing
-            self[class] = self[class] - growing
+            growing_trees = self[class] * 0.1 * YPL  * IDA[IDA_DT][i]
+            growing_trees = min(self[class], growing_trees)
+            growing_trees = math.floor(growing_trees)
+            self["class"..(i+1).."_sum"] = self["class"..(i+1).."_sum"] + growing_trees
+            self[class] = self[class] - growing_trees
         end
     end,
     death = function(self, total, left, right)
@@ -195,7 +197,7 @@ cell = Cell{
         local cut = self.trees_cut
         local cutted = 0
         -- extrating trees
-        while cutted < cut and c <= 9 do
+        while cutted < cut and c <= 9 and goal * CUT_VOL < MAX_VOL do
             class = "class"..c.."_sum"
             cutted = cutted + self[class]
             goal = goal - self[class]
@@ -203,7 +205,13 @@ cell = Cell{
             c = c + 1
         end
         -- make shure to cut just right amount
-        if goal < 0 then
+        if goal * CUT_VOL > MAX_VOL then
+            local trees = (goal * CUT_VOL - MAX_VOL) / CUT_VOL
+            goal = goal - trees
+            cutted = cutted - trees
+            self[class] = trees
+        end
+        if goal < 0 then -- cutted more the goal
             self[class] = -goal
             cutted = cutted - self[class]
             goal = 0
@@ -215,11 +223,11 @@ cell = Cell{
         end
         self.all_trees = self.all_trees - cutted
         self.trees_cut = self.trees_cut - cutted
-        self.died = self.died + 0
+        self.died = self.died + cutted
         return cutted
     end
 }
-
+-- mudar nomes de metodos
 cs = CellularSpace {
     project = proj,
     layer  = "grid",
@@ -242,7 +250,7 @@ cs = CellularSpace {
                     local trees = min(1, new_trees)
                     if new_trees == 0 then return end
                     other:birth(trees)
-                    if other.died >= trees then
+                    if other.died >= trees then -- *
                         other.died = other.died - trees
                     end
                     new_trees = new_trees - trees
@@ -265,7 +273,7 @@ cs = CellularSpace {
     Extract = function(self, goal)
         extract_t:rebuild()
         forEachCell(extract_t, function(cell)
-            if goal == 0 then return end
+            if goal == 0 or goal * CUT_VOL > MAX_VOL then return end
             goal = goal - cell:extract(goal)
         end)
     end,
@@ -375,17 +383,20 @@ function stats()
     print("mean: "..cs:all_trees()/#cs)
     print("min: "..min)
     print("max: "..max)
-    print("cut:"..cs:trees_cut())
+    print("total cut trees:"..cs:trees_cut())
     print("total: "..cs:all_trees())
     print("----------")
 end
+
 print("before: "..cs:count_all())
 print("before (cut): "..cs:trees_cut())
 t = Timer{
     Event{start = 1, priority = -5, period=CUT_CICLE//YPL,
         action = function()
+            -- extraction function
             stats()
             local before = cs:all_trees()
+            -- waste
             local ext = cs:trees_cut() * 0.6
             print("extracted: "..ext)
             cs:Extract(ext)
@@ -394,6 +405,7 @@ t = Timer{
             stats()
     end},
     Event{action = function()
+            -- forest growth
             local all_trees = cs:all_trees()
             local new_trees = all_trees * NEW_TREES
             local dead_trees = all_trees * DEATH
@@ -413,14 +425,14 @@ t = Timer{
     end}
 }
 trees_cut_m:save("trees_cut.png")
-t:run(time//YPL)
-cuts:add{cut=0, after=cs:all_trees(), before=before}
+t:run(TIME//YPL)
+cuts:add{cut=0, after=cs:all_trees(), before= cs:all_trees()}
 print("count: "..cs:count_all())
 print("all: "..cs:all_trees())
 stats()
 print("Saving output...")
 df:save("dados/output/classes-"..arq_name..".csv")
-cs:save("result",{"trees_cut","trees_seeds", "trees_reman"})
+cs:save("result",{"trees_cut","trees_seeds", "trees_reman"}) -- salvar no lugar certo
 cuts:save("dados/output/cuts-"..arq_name..".csv")
 all_trees_m:save("all_trees.png")
 trees_cut_m:save("trees_cut.png")
