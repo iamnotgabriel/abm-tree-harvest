@@ -15,6 +15,7 @@ df = pd.DataFrame({
     "Castro":[.233 for i in range(9)],
     "Borges":[.287,.325,.437,.452,.470,.478,.531,.417,np.nan]}, 
     index= [i for i in range(1, 10)])
+df.to_csv("ida-data.csv",index=False)
 # fonts
 title = {"fontsize":18, "fontfamily":"Arial", "fontweight":"bold"}
 axis = {"fontsize":17, "fontfamily":"Arial"}
@@ -31,6 +32,7 @@ df2.loc[9] = df2.loc[9].fillna(mean[9])
 soma = df2.loc[:9,:"Borges"].values * df2.loc[10].values[:]
 soma = np.nan_to_num(soma)
 mean = soma.sum(axis=1) / df2.loc[10].sum()
+print(*mean, sep='\n')
 df = df.drop(10) # drop weight
 # ploting chart
 fig, ax = plt.subplots()
